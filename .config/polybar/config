@@ -47,12 +47,14 @@ padding-right = 0
 module-margin-left = 2
 module-margin-right = 2
 
+; I’m a weeb who also listens to weeb music, so I needed a font with Kanji
 font-0 = "Noto Sans CJK JP Regular:size=11;1"
 font-1 = "Noto Sans CJK JP Regular:size=11;1"
 font-2 = "Noto Sans CJK JP Regular:size=11;1"
 
 modules-left = i3 mpd 
 modules-center = 
+; add battery here when using a mobile device
 modules-right = cpu memory filesystem date
 
 ;wm-restack = bspwm
@@ -406,26 +408,17 @@ battery = BAT0
 adapter = ADP1
 full-at = 98
 
-format-charging = <animation-charging> <label-charging>
-format-charging-underline = #ffb52a
+format-charging = <label-charging>
+format-charging-underline = #2affb5
+format-discharging = <label-discharging>
+bar-capacity-width = 20
+bar-capacity-empty = 5
+bar-capacity-fill = 50
+format-discharging-underline = #ffb52a
 
-format-discharging = <ramp-capacity> <label-discharging>
-format-discharging-underline = ${self.format-charging-underline}
 
-format-full-prefix = " "
 format-full-prefix-foreground = ${colors.foreground-alt}
 format-full-underline = ${self.format-charging-underline}
-
-ramp-capacity-0 = 
-ramp-capacity-1 = 
-ramp-capacity-2 = 
-ramp-capacity-foreground = ${colors.foreground-alt}
-
-animation-charging-0 = 
-animation-charging-1 = 
-animation-charging-2 = 
-animation-charging-foreground = ${colors.foreground-alt}
-animation-charging-framerate = 750
 
 [module/temperature]
 type = internal/temperature
