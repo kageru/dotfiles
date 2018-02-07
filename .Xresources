@@ -1,0 +1,39 @@
+#if __has_include(".extend.Xresources")
+#include ".extend.Xresources"
+#endif
+
+! ^ The above lines are no comments!
+! Leave them as they are if a file ~/.extend.Xresources is being used on your system.
+! config can be added there or also here below.
+! For comments use "!"
+
+Xft.dpi: 96
+Xft.antialias: true
+Xft.hinting: true
+Xft.rgba: rgb
+Xft.autohint: false
+Xft.hintstyle: hintslight
+Xft.lcdfilter: lcddefault
+
+XTerm*background: #2b2b2b
+XTerm*foreground: #e7e7e7
+XTerm*pointerColor: #16A085
+XTerm*faceName: Hack
+XTerm*faceSize: 11
+
+
+! ROFI COLORS
+rofi.hide-scrollbar:    true
+rofi.lines:             6
+rofi.separator-style:   none
+rofi.location:          2
+rofi.width:             100
+rofi.fixed-num-lines:   false
+rofi.fuzzy:             true
+rofi.levenshtein-sort:  true
+rofi.font:              Hack 10
+rofi.color-normal:      #222222, #cccccc, #222222, #4f290b, #dddddd
+rofi.color-window:      #222222, #cccccc, #222222, #4f290b, #dddddd
+rofi.color-urgent:      #222222, #cccccc, #222222, #4f290b, #dddddd
+rofi.color-active:      #222222, #cccccc, #222222, #4f290b, #dddddd
+rofi.bw:                0
