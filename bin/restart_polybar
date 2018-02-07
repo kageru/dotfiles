@@ -1,0 +1,8 @@
+#!/bin/sh
+
+killall polybar
+sleep 1
+polybar -c ~/.config/polybar/config left &
+polybar -c ~/.config/polybar/config main &
+polybar -c ~/.config/polybar/config right &
+
