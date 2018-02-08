@@ -1,6 +1,5 @@
 #!/bin/sh
 
-# tilda
 rm -rf /home/kageru/temp/*
 fcitx
 syncthing &
@@ -11,7 +10,7 @@ xrandr --fb 7680x2160 --output DVI-D-0 --pos 0x0 --output DP-0 --mode 1920x1080 
 ~/.fehbg
 ~/bin/restart_polybar
 mpd
-#redshift
+redshift &
 #pactl unload-module module-role-cork
 
 
