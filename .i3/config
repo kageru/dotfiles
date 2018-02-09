@@ -18,7 +18,7 @@ bindsym $mod+x exec "rofi -show window -modi window,run,drun"
 # -font Hack\ 20 -lines 8 -location 2 -width 100 -no-fixed-num-lines -fuzzy -levenshtein-sort
 # -color-normal "argb:ff222222, argb:cccccc, argb:333333, argb:663333, argb:ffffff" -color-window "#222222, #cccccc, #333333, #663333, #ffffff" -color-urgent "#222222, #cccccc, #333333, #663333, #ffffff" -color-active "#222222, #cccccc, #333333, #663333, #ffffff"
 
-floating_maximum_size 1920 x 1080
+floating_maximum_size 1280 x 720
 
 # Media
 #bindsym XF86AudioPlay exec wine /home/kageru/.foobar2000/foobar2000.exe /playpause
@@ -26,6 +26,14 @@ floating_maximum_size 1920 x 1080
 
 bindsym XF86AudioPlay exec mpc toggle
 bindsym XF86AudioNext exec mpc next
+
+bindsym XF86MonBrightnessUp exec xbacklight -inc 10; exec notify-send $(xbacklight -get) -t 300
+bindsym XF86MonBrightnessDown exec xbacklight -dec 10; exec notify-send $(xbacklight -get) -t 300
+
+# most certainly not the best way, but works on my machine™
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo +2%; exec notify-send $(pactl list sinks | grep '^\s*Volume' | grep -Po '\d+%' | uniq) -t 300
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo -2%; exec notify-send $(pactl list sinks | grep '^\s*Volume' | grep -Po '\d+%' | uniq) -t 300
+
 
 # set default desktop layout (default is tiling)
 # workspace_layout tabbed <stacking|tabbed>
@@ -74,10 +82,6 @@ exec --no-startup-id pa-applet
 bindsym $mod+Ctrl+m exec pavucontrol
 
 ################################################################################################
-
-# Screen brightness controls
-# bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'brightness up'"
-# bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness down'"
 
 # Start Applications
 bindsym $mod+Ctrl+b exec terminal -e 'bmenu'
