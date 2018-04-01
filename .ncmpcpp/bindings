@@ -151,16 +151,24 @@
 #
 
 #def_key "XF86AudioPlay"
-#    pause
+#   pause
 #def_key "XF86AudioNext"
-#    next
+#   next
 
 def_key "j"
     scroll_down
 def_key "k"
     scroll_up
-def_key "ctrl-u"
-    page_up
+def_key "l"
+  toggle_output
+def_key "l"
+  enter_directory
+def_key "l"
+  run_action
+# this allows me to add an entire folder to the playlist with shift+L, while navitation is still bound to l
+# We can also add single tracks with l as defined further down
+def_key "L"
+    play_item
 def_key "ctrl-d"
     page_down
 
@@ -168,11 +176,21 @@ def_key "h"
     previous_column
 def_key "l"
     next_column
+def_key "l"
+    play_item
 
 def_key "n"
     next_found_item
 def_key "N"
     previous_found_item
+
+def_key "J"
+    select_item
+    scroll_down
+def_key "K"
+    select_item
+    scroll_up
+
 
 #def_key "mouse"
 #  mouse_event
