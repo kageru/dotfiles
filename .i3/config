@@ -10,7 +10,7 @@ set $mod Mod4
 bindsym $mod+Shift+Return exec cool-retro-term;
 #for_window [class="cool-retro-term"] fullscreen enable
 
-bindsym $mod+Ctrl+o exec keepass --auto-type
+#bindsym $mod+Ctrl+o exec keepass --auto-type
 bindsym Ctrl+Shift+4 exec /home/kageru/bin/pyshare
 bindsym Ctrl+Shift+8 exec /home/kageru/bin/pyshare -e 1
 bindsym $mod+Shift+u exec /home/kageru/bin/pyshare -m text
@@ -18,7 +18,10 @@ bindsym $mod+x exec "rofi -show window -modi window,run,drun"
 # -font Hack\ 20 -lines 8 -location 2 -width 100 -no-fixed-num-lines -fuzzy -levenshtein-sort
 # -color-normal "argb:ff222222, argb:cccccc, argb:333333, argb:663333, argb:ffffff" -color-window "#222222, #cccccc, #333333, #663333, #ffffff" -color-urgent "#222222, #cccccc, #333333, #663333, #ffffff" -color-active "#222222, #cccccc, #333333, #663333, #ffffff"
 
-floating_maximum_size 1920 x 1080
+bindsym --whole-window $mod+button3 kill
+
+
+floating_maximum_size 1280 x 720
 
 # Media
 #bindsym XF86AudioPlay exec wine /home/kageru/.foobar2000/foobar2000.exe /playpause
@@ -27,12 +30,15 @@ floating_maximum_size 1920 x 1080
 bindsym XF86AudioPlay exec mpc toggle
 bindsym XF86AudioNext exec mpc next
 
+bindsym --whole-window button10 exec mpc toggle
+bindsym --whole-window button11 exec mpc next
+
 # set default desktop layout (default is tiling)
 # workspace_layout tabbed <stacking|tabbed>
 
 # Configure border style <normal|1pixel|pixel xx|none|pixel>
-new_window none
-new_float none
+new_window pixel 1
+new_float pixel 1
 #new_window pixel 1
 #new_float normal
 
@@ -58,7 +64,7 @@ bindsym $mod+Return exec urxvt
 bindsym $mod+Shift+q kill
 
 # start program launcher
-bindsym $mod+d exec --no-startup-id dmenu_recency
+bindsym $mod+d exec --no-startup-id rofi -show run
 
 # launch categorized menu
 bindsym $mod+z exec --no-startup-id morc_menu
@@ -92,16 +98,16 @@ bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart du
 bindsym Print exec --no-startup-id i3-scrot
 bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
 bindsym $mod+Shift+Print --release exec --no-startup-id i3-scrot -s
-bindsym $mod+Shift+h exec xdg-open /usr/share/doc/manjaro/i3_help.pdf
+#bindsym $mod+Shift+h exec xdg-open /usr/share/doc/manjaro/i3_help.pdf
 bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
 
 # focus_follows_mouse no
 
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+odiaeresis focus right
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -110,10 +116,10 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -127,7 +133,7 @@ bindsym $mod+b workspace back_and_forth
 bindsym $mod+Shift+b move container to workspace back_and_forth; workspace back_and_forth
 
 # split orientation
-bindsym $mod+h split h;exec notify-send 'tile horizontally'
+bindsym $mod+g split h;exec notify-send 'tile horizontally'
 bindsym $mod+v split v;exec notify-send 'tile vertically'
 bindsym $mod+q split toggle
 
@@ -171,32 +177,32 @@ set $ws2 2:2-main
 set $ws3 3:3-social
 set $ws4 4
 set $ws5 5
-set $ws6 6:6-programming
-set $ws7 7:7-fansub
+set $ws6 6
+set $ws7 7
 set $ws8 8
 
-set $ws9 9:11
-set $ws10 10:12
-set $ws11 11:13
-set $ws12 12:14
-set $ws13 13:15
-set $ws14 14:16
-set $ws15 15:17
-set $ws16 16:18
-set $ws17 17:19
+set $ws11 11
+set $ws12 12
+set $ws13 13
+set $ws14 14
+set $ws15 15
+set $ws16 16
+set $ws17 17
+set $ws18 18
+set $ws19 19
 
 
 # default screens
+#workspace $ws1 output DP-0
 workspace $ws1 output DVI-D-0
-workspace $ws9 output DVI-D-0
+workspace $ws11 output DVI-D-0
 workspace $ws2 output DP-0
-workspace $ws10 output DP-0
+workspace $ws12 output DP-0
 workspace $ws3 output HDMI-1
 workspace $ws11 output HDMI-1
 workspace $ws4 output DVI-D-0
-workspace $ws12 output DVI-D-0
-workspace $ws16 output HDMI-0
-workspace $ws17 output HDMI-0
+workspace $ws18 output HDMI-0
+workspace $ws19 output HDMI-0
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -208,15 +214,15 @@ bindsym $mod+6 workspace $ws6
 bindsym $mod+7 workspace $ws7
 bindsym $mod+8 workspace $ws8
 
-bindsym $mod+KP_1 workspace $ws9
-bindsym $mod+KP_2 workspace $ws10
-bindsym $mod+KP_3 workspace $ws11
-bindsym $mod+KP_4 workspace $ws12
-bindsym $mod+KP_5 workspace $ws13
-bindsym $mod+KP_6 workspace $ws14
-bindsym $mod+KP_7 workspace $ws15
-bindsym $mod+KP_8 workspace $ws16
-bindsym $mod+KP_9 workspace $ws17
+bindsym $mod+KP_1 workspace $ws11
+bindsym $mod+KP_2 workspace $ws12
+bindsym $mod+KP_3 workspace $ws13
+bindsym $mod+KP_4 workspace $ws14
+bindsym $mod+KP_5 workspace $ws15
+bindsym $mod+KP_6 workspace $ws16
+bindsym $mod+KP_7 workspace $ws17
+bindsym $mod+KP_8 workspace $ws18
+bindsym $mod+KP_9 workspace $ws19
 
 
 # Move focused container to workspace
@@ -229,15 +235,15 @@ bindsym $mod+Ctrl+6 move container to workspace $ws6
 bindsym $mod+Ctrl+7 move container to workspace $ws7
 bindsym $mod+Ctrl+8 move container to workspace $ws8
 
-bindsym $mod+Ctrl+KP_1 move container to workspace $ws9
-bindsym $mod+Ctrl+KP_2 move container to workspace $ws10
-bindsym $mod+Ctrl+KP_3 move container to workspace $ws11
-bindsym $mod+Ctrl+KP_4 move container to workspace $ws12
-bindsym $mod+Ctrl+KP_5 move container to workspace $ws13
-bindsym $mod+Ctrl+KP_6 move container to workspace $ws14
-bindsym $mod+Ctrl+KP_7 move container to workspace $ws15
-bindsym $mod+Ctrl+KP_8 move container to workspace $ws16
-bindsym $mod+Ctrl+KP_9 move container to workspace $ws17
+bindsym $mod+Ctrl+KP_1 move container to workspace $ws11
+bindsym $mod+Ctrl+KP_2 move container to workspace $ws12
+bindsym $mod+Ctrl+KP_3 move container to workspace $ws13
+bindsym $mod+Ctrl+KP_4 move container to workspace $ws14
+bindsym $mod+Ctrl+KP_5 move container to workspace $ws15
+bindsym $mod+Ctrl+KP_6 move container to workspace $ws16
+bindsym $mod+Ctrl+KP_7 move container to workspace $ws17
+bindsym $mod+Ctrl+KP_8 move container to workspace $ws18
+bindsym $mod+Ctrl+KP_9 move container to workspace $ws19
 
 # Move to workspace with focused container
 bindsym $mod+Shift+1 move container to workspace $ws1; workspace $ws1
@@ -249,26 +255,24 @@ bindsym $mod+Shift+6 move container to workspace $ws6; workspace $ws6
 bindsym $mod+Shift+7 move container to workspace $ws7; workspace $ws7
 bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 
-bindsym $mod+Shift+KP_1 move container to workspace $ws9; workspace $ws9
-bindsym $mod+Shift+KP_2 move container to workspace $ws10; workspace $ws10
-bindsym $mod+Shift+KP_3 move container to workspace $ws11; workspace $ws11
-bindsym $mod+Shift+KP_4 move container to workspace $ws12; workspace $ws12
-bindsym $mod+Shift+KP_5 move container to workspace $ws13; workspace $ws13
-bindsym $mod+Shift+KP_6 move container to workspace $ws14; workspace $ws14
-bindsym $mod+Shift+KP_7 move container to workspace $ws15; workspace $ws15
-bindsym $mod+Shift+KP_8 move container to workspace $ws16; workspace $ws16
-bindsym $mod+Shift+KP_9 move container to workspace $ws17; workspace $ws17
+bindsym $mod+Shift+KP_1 move container to workspace $ws9; workspace $ws11
+bindsym $mod+Shift+KP_2 move container to workspace $ws10; workspace $ws12
+bindsym $mod+Shift+KP_3 move container to workspace $ws11; workspace $ws13
+bindsym $mod+Shift+KP_4 move container to workspace $ws12; workspace $ws14
+bindsym $mod+Shift+KP_5 move container to workspace $ws13; workspace $ws15
+bindsym $mod+Shift+KP_6 move container to workspace $ws14; workspace $ws16
+bindsym $mod+Shift+KP_7 move container to workspace $ws15; workspace $ws17
+bindsym $mod+Shift+KP_8 move container to workspace $ws16; workspace $ws18
+bindsym $mod+Shift+KP_9 move container to workspace $ws17; workspace $ws19
 
 # Autostart
-exec --no-startup-id i3-msg 'workspace $ws4; exec thunderbird; layout stacking; exec hexchat'
-exec --no-startup-id i3-msg 'workspace $ws3; exec keepass; workspace $ws1'
+exec --no-startup-id i3-msg 'workspace $ws4; layout stacking; exec thunderbird; exec hexchat'
+exec --no-startup-id i3-msg 'workspace $ws3; exec keepassxc; workspace $ws1'
+exec_always ~/bin/restart_polybar
 
 # Open applications on specific workspaces
 # assign [class="mpv"] $ws5
-# assign [class="Thunderbird"] $ws1
-# assign [class="Pale moon"] $ws2
-# assign [class="Pcmanfm"] $ws3
-# assign [class="Skype"] $ws5
+assign [class="Thunderbird"] $ws4
 
 # Open specific applications in floating mode
 for_window [title="alsamixer"] floating enable border pixel 1
@@ -293,15 +297,12 @@ for_window [class="qt5ct"] floating enable sticky enable border normal
 for_window [class="Qtconfig-qt4"] floating enable sticky enable border normal
 for_window [class="Simple-scan"] floating enable border normal
 for_window [class="(?i)System-config-printer.py"] floating enable border normal
-for_window [class="Skype"] floating enable border normal
 for_window [class="Thus"] floating enable border normal
 for_window [class="Timeset-gui"] floating enable border normal
 for_window [class="(?i)virtualbox"] floating enable border normal
 for_window [class="Xfburn"] floating enable
-#for_window [class="Tk"] floating enable
-#for_window [class="mpv"] floating enable
+for_window [class="mpv"] floating enable
 for_window [class="feh"] floating enable
-for_window [class="Overwatch"] floating enable
 
 
 # switch to workspace with urgent window automatically
@@ -320,11 +321,11 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 bindsym $mod+0 mode "$mode_system"
 set $mode_system (l)ock, (e)xit, switch_(u)ser, (s)uspend, (h)ibernate, (r)eboot, (Shift+s)hutdown
 mode "$mode_system" {
-    bindsym l exec --no-startup-id i3exit lock, mode "default"
-    bindsym s exec --no-startup-id i3exit suspend, mode "default"
+    bindsym l exec --no-startup-id i3lock -i ~/Pictures/bg.png -ut, mode "default"
+    bindsym s exec --no-startup-id systemctl suspend, mode "default"
     bindsym u exec --no-startup-id i3exit switch_user, mode "default"
     bindsym e exec --no-startup-id i3exit logout, mode "default"
-    bindsym h exec --no-startup-id i3exit hibernate, mode "default"
+    bindsym h exec --no-startup-id systemctl hibernate, mode "default"
     bindsym r exec --no-startup-id i3exit reboot, mode "default"
     bindsym Shift+s exec --no-startup-id i3exit shutdown, mode "default"
 
@@ -341,10 +342,10 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 5 px or 5 ppt
-        bindsym k resize grow height 5 px or 5 ppt
-        bindsym l resize shrink height 5 px or 5 ppt
-        bindsym semicolon resize grow width 5 px or 5 ppt
+        bindsym h resize shrink width 5 px or 5 ppt
+        bindsym j resize grow height 5 px or 5 ppt
+        bindsym k resize shrink height 5 px or 5 ppt
+        bindsym l resize grow width 5 px or 5 ppt
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
@@ -358,11 +359,11 @@ mode "resize" {
 }
 
 # Lock screen
-bindsym $mod+9 exec --no-startup-id blurlock
+bindsym $mod+9 exec --no-startup-id i3lock -i ~/Pictures/bg.png -ut
 
 # Autostart applications
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec --no-startup-id nitrogen --restore; sleep 1; compton -b
+exec --no-startup-id compton -b
 # exec --no-startup-id manjaro-hello
 exec --no-startup-id nm-applet
 #exec --no-startup-id xfce4-power-manager
@@ -423,8 +424,8 @@ set $i3_color4          #16A085
 set $i3_color5          #FDF6E3
 set $i3_color6          #EEE8D5
 set $i3_color7          #E5201D
-set $i3_color8          #808380
-set $i3_color9          #434745
+set $i3_color8          #643116
+set $i3_color9          #28170F
 set $i3_color10         #454948
 set $i3_color11         #80FFF9
 set $i3_color12         #FDF6E3
@@ -479,7 +480,7 @@ client.background       $i3_background
 #############################
 
 # Set inner/outer gaps
-gaps inner 17
+gaps inner 13
 gaps outer 4
 
 # Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
