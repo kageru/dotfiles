@@ -22,8 +22,8 @@ precmd () {
 setopt prompt_subst
 
 # I usually change the hostname color between my systems
-hostcolor="66"
-PROMPT="%(!.%F{220}[%F{196}%n%F{220}@%F{$hostcolor}%m %F{196}%c%F{204}\${vcs_info_msg_0_}%F{220}] %(?/%F{2}/%F{1})#.%F{196}[%F{220}%n%F{196}@%F{$hostcolor}%m %F{146}%c%F{111}\${vcs_info_msg_0_}%F{196}] %(?/%F{2}/%F{1})Δ)%f "
+hostcolor="75"
+PROMPT="%(!.%F{220}[%F{196}%n%F{220}@%F{$hostcolor}%m %F{196}%c%F{204}\${vcs_info_msg_0_}%F{220}] %(?/%F{3}/%F{1})#.%F{196}[%F{220}%n%F{196}@%F{$hostcolor}%m %F{146}%c%F{111}\${vcs_info_msg_0_}%F{196}] %(?/%F{3}/%F{1})Δ)%f "
 
 # the same prompt without git/vcs stuff
 # PROMPT="%(!.%F{220}[%F{196}%n%F{220}@%F{$hostcolor}%m %F{196}%c%F{220}] %(?/%F{2}/%F{1})#.%F{196}[%F{220}%n%F{196}@%F{$hostcolor}%m %F{146}%c%F{196}] %(?/%F{2}/%F{1})Δ)%f "
@@ -38,6 +38,8 @@ setopt noalwayslastprompt
 setopt noauto_remove_slash
 setopt list_types
 setopt complete_in_word
+
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 
 # disclaimer: I blatantly copied all of this without actually knowing what it does. ¯\_(ツ)_/¯
 

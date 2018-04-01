@@ -4,6 +4,7 @@ alias qaac_release=/mnt/hephaestos/qaac/qaac91
 alias define='python /home/kageru/programming/mwebster/mwebster.py'
 alias nanaone-stream='mpv rtmp://live1.brb.re/live/nanaone'
 alias ls='exa'
+alias exat='exa --tree -L 3'
 alias animesync='python /home/kageru/programming/animesync-personal/animesync.py'
 alias autoremove='sudo pacaur -R $(pacaur -Qdtq)'
 export EDITOR=/usr/bin/vim
@@ -20,9 +21,11 @@ alias ll='ls -l'
 alias la='ls -a'
 alias grep="grep --colour"
 alias clip='xsel -b'
-alias aurnoverify='yaourt --m-arg "--skipinteg" '
 alias bitrateviewer='wine "/home/kageru/.wine/drive_c/Program Files (x86)/BitrateViewer/BitrateViewer.exe"'
 alias colorpicker="maim -st 0 | convert - -resize 1x1\! -format '%[pixel:p{0,0}]' info:-"
+alias fixgit='eval "$(ssh-agent -s)"; ssh-add ~/.ssh/git'
+alias sv='systemctl'
+alias xo='xdg-open'
 
 alias config='/usr/bin/git --git-dir=/home/kageru/dotfiles/ --work-tree=/home/kageru'
 alias -g ...='../../'           #cd ...
