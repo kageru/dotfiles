@@ -8,8 +8,8 @@
 
 
 !! black dark/light
-*color0:                          #232423
-*color8:                          #282928
+*color0:                          #666666
+*color8:                          #888888
 
 !! red dark/light
 *color1:                          #BA2922
@@ -39,7 +39,7 @@
 *color7:                          #E0E0E0
 *color15:                         #E8E8E8
 
-Xcursor.theme: Maia-Cursor
+Xcursor.theme: Adwaita
 Xcursor.size:                     0
 
 !XTerm*background:                 #272827
