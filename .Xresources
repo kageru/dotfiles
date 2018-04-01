@@ -23,17 +23,30 @@ XTerm*faceSize: 11
 
 
 ! ROFI COLORS
-rofi.hide-scrollbar:    true
-rofi.lines:             6
-rofi.separator-style:   none
-rofi.location:          2
-rofi.width:             100
-rofi.fixed-num-lines:   false
+! rofi.hide-scrollbar:    true
+! rofi.lines:             6
+! rofi.separator-style:   none
+! rofi.location:          2
+! rofi.width:             100
+! rofi.fixed-num-lines:   false
 rofi.fuzzy:             true
 rofi.levenshtein-sort:  true
-rofi.font:              Hack 10
-rofi.color-normal:      #222222, #cccccc, #222222, #4f290b, #dddddd
-rofi.color-window:      #222222, #cccccc, #222222, #4f290b, #dddddd
-rofi.color-urgent:      #222222, #cccccc, #222222, #4f290b, #dddddd
-rofi.color-active:      #222222, #cccccc, #222222, #4f290b, #dddddd
-rofi.bw:                0
+! rofi.font:              Hack 10
+! rofi.color-normal:      #222222, #cccccc, #222222, #4f290b, #dddddd
+! rofi.color-window:      #222222, #cccccc, #222222, #4f290b, #dddddd
+! rofi.color-urgent:      #222222, #cccccc, #222222, #4f290b, #dddddd
+! rofi.color-active:      #222222, #cccccc, #222222, #4f290b, #dddddd
+! rofi.bw:                0
+
+rofi.show-icons:            false
+rofi.modi:                  drun,run,window,ssh
+rofi.lines:                 7
+rofi.line-padding:          10
+rofi.matching:              fuzzy
+rofi.bw:                    0
+rofi.padding:               0
+rofi.separator-style:       none
+rofi.hide-scrollbar:        true
+rofi.line-margin:           0
+rofi.font:                  sans-serif 10
+rofi.theme: /home/kageru/.config/rofi/nord.rasi
