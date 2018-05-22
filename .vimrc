@@ -24,7 +24,7 @@ set autochdir
 set undolevels=1000
 set backspace=indent,eol,start
 
-colorscheme wombat256_modified
+colorscheme nord
 syntax on
 
 set nocompatible              " be iMproved, required
