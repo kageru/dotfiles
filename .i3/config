@@ -20,7 +20,6 @@ bindsym $mod+x exec "rofi -show window -modi window,run,drun"
 
 bindsym --whole-window $mod+button3 kill
 
-
 floating_maximum_size 1280 x 720
 
 # Media
@@ -32,13 +31,19 @@ bindsym XF86AudioNext exec mpc next
 
 bindsym --whole-window button10 exec mpc toggle
 bindsym --whole-window button11 exec mpc next
+bindsym XF86MonBrightnessUp exec xbacklight -inc 10; exec notify-send $(xbacklight -get) -t 300
+bindsym XF86MonBrightnessDown exec xbacklight -dec 10; exec notify-send $(xbacklight -get) -t 300
+
+# most certainly not the best way, but works on my machine™
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo +2%; exec notify-send $(pactl list sinks | grep '^\s*Volume' | grep -Po '\d+%' | uniq) -t 300
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo -2%; exec notify-send $(pactl list sinks | grep '^\s*Volume' | grep -Po '\d+%' | uniq) -t 300
 
 # set default desktop layout (default is tiling)
 # workspace_layout tabbed <stacking|tabbed>
 
 # Configure border style <normal|1pixel|pixel xx|none|pixel>
-new_window pixel 1
-new_float pixel 1
+new_window pixel 3
+new_float pixel 4
 #new_window pixel 1
 #new_float normal
 
@@ -58,7 +63,8 @@ font xft:Noto Sans 10
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec urxvt
+exec --no-startup-id urxvtd
+bindsym $mod+Return exec urxvtc
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -80,10 +86,6 @@ exec --no-startup-id pa-applet
 bindsym $mod+Ctrl+m exec pavucontrol
 
 ################################################################################################
-
-# Screen brightness controls
-# bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'brightness up'"
-# bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness down'"
 
 # Start Applications
 bindsym $mod+Ctrl+b exec terminal -e 'bmenu'
@@ -417,23 +419,21 @@ set_from_resource $term_color15    color15
 set $i3_background      #2B2C2B
 set $i3_text            #F9FAF9
 set $i3_separator       #454947
-set $i3_color1          #f9faf9
-set $i3_color2          #595B5B
-set $i3_color3          #353836
-set $i3_color4          #16A085
-set $i3_color5          #FDF6E3
-set $i3_color6          #EEE8D5
-set $i3_color7          #E5201D
-set $i3_color8          #643116
-set $i3_color9          #28170F
-set $i3_color10         #454948
-set $i3_color11         #80FFF9
-set $i3_color12         #FDF6E3
-set $i3_color13         #CB4B16
-set $i3_color14         #268BD2
-set $i3_color15         #000000
-set $i3_color16         #ffffff
-set $i3_color17         #0c0c0c
+set $i3_color1 #3b4252
+set $i3_color2 #434c5e
+set $i3_color3 #4c566a
+set $i3_color4 #d8dee9
+set $i3_color5 #e5e9f0
+set $i3_color6 #eceff4
+set $i3_color7 #8fbcbb
+set $i3_color8 #88c0d0
+set $i3_color9 #81a1c1
+set $i3_color10 #5e81ac
+set $i3_color11 #bf616a
+set $i3_color12 #d08770
+set $i3_color13 #ebcb8b
+set $i3_color14 #a3be8c
+set $i3_color15 #b48ead
 
 # Start i3bar to display a workspace bar (plus the system information i3status if available)
 #bar {
@@ -467,11 +467,11 @@ bindsym $mod+m exec "mpv --player-operation-mode=pseudo-gui -- \\"`xsel -ob`\\""
 
 # Theme colors
 # class                 border      backgr.     text        indic.      child_border
-client.focused          $i3_color8  $i3_color8  $i3_color11 $i3_color12
-client.focused_inactive $i3_color9  $i3_color9  $i3_color4  $i3_color10
-client.unfocused        $i3_color9  $i3_color9  $i3_color4  $i3_color10
+client.focused          $i3_color10  $i3_color9  $i3_color11 $i3_color8
+client.focused_inactive $i3_color10  $i3_color10  $i3_color4  $i3_color10
+client.unfocused        $i3_color10  $i3_color10  $i3_color4  $i3_color10
 client.urgent           $i3_color13 $i3_color12 $i3_color4  $i3_color14
-client.placeholder      $i3_color15 $i3_color17 $i3_color16 $i3_color15 $i3_color17
+client.placeholder      $i3_color15 $i3_color15 $i3_color15 $i3_color15 $i3_color15
 
 client.background       $i3_background
 
@@ -480,8 +480,8 @@ client.background       $i3_background
 #############################
 
 # Set inner/outer gaps
-gaps inner 13
-gaps outer 4
+gaps inner 10
+gaps outer 6
 
 # Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
 # gaps inner|outer current|all set|plus|minus <px>
