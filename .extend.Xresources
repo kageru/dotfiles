@@ -1,43 +1,88 @@
-*background:                      #272827
-*foreground:                      #657b83
-*fading:                          15
-*fadeColor:                       black
-*cursorColor:                     #16A085
-*pointerColorBackground:          #2B2C2B
-*pointerColorForeground:          #16A085
+! Base16 Nord
+! Scheme: arcticicestudio
 
+#define base00 #2e3440
+#define base01 #808fb2
+#define base02 #7e8fb2
+#define base03 #7786a5
+#define base04 #d8dee9
+#define base05 #c5c9d0
+#define base06 #eceff4
+#define base07 #8fbcbb
+#define base08 #88c0d0
+#define base09 #81a1c1
+#define base0A #5e81ac
+#define base0B #bf616a
+#define base0C #d08770
+#define base0D #ebcb8b
+#define base0E #a3be8c
+#define base0F #b48ead
+
+*foreground:   base05
+#ifdef background_opacity
+*background:   [background_opacity]base00
+#else
+*background:   base00
+#endif
+*cursorColor:  base05
+
+*color0:       base00
+*color1:       base08
+*color2:       base0B
+*color3:       base0A
+*color4:       base0D
+*color5:       base0E
+*color6:       base0C
+*color7:       base05
+
+*color8:       base03
+*color9:       base09
+*color10:      base01
+*color11:      base02
+*color12:      base04
+*color13:      base06
+*color14:      base0F
+*color15:      base07
+
+!*background:                      #272827
+!*foreground:                      #657b83
+!*fading:                          15
+!*fadeColor:                       black
+!*cursorColor:                     #16A085
+!*pointerColorBackground:          #2B2C2B
+!*pointerColorForeground:          #16A085
 
 !! black dark/light
-*color0:                          #666666
-*color8:                          #888888
+!*color0:                          #666666
+!*color8:                          #888888
 
 !! red dark/light
-*color1:                          #BA2922
-*color9:                          #CC372C
+!*color1:                          #BA2922
+!*color9:                          #CC372C
 
 !! green dark/light
-*color2:                          #499300
-*color10:                         #4de216
+!*color2:                          #499300
+!*color10:                         #4de216
 
 !! yellow dark/light
-*color3:                          #f4f400
-*color11:                         #f7ad25
+!*color3:                          #f4f400
+!*color11:                         #f7ad25
 
 !! blue dark/light
-*color4:                          #16A085
-*color12:                         #13BF9D
+!*color4:                          #16A085
+!*color12:                         #13BF9D
 
 !! magenta dark/light
-*color5:                          #89267a
-*color13:                         #e01a77
+!*color5:                          #89267a
+!*color13:                         #e01a77
 
 !! cyan dark/light
-*color6:                          #00CCCC
-*color14:                         #00FFFF
+!*color6:                          #00CCCC
+!*color14:                         #00FFFF
 
 !! white dark/light
-*color7:                          #E0E0E0
-*color15:                         #E8E8E8
+!*color7:                          #E0E0E0
+!*color15:                         #E8E8E8
 
 Xcursor.theme: Adwaita
 Xcursor.size:                     0
@@ -60,13 +105,13 @@ URxvt.boldFont:    xft:Hack:size=11
 !URxvt.bold.font: -xos4-terminus-bold-r-normal--16-160-72-72-c-80-iso10646-1
 !! terminus names see end of file!
 
-URxvt.depth:                      32
-URxvt.background:                 [70]#000000
+URxvt.depth:                      24
+URxvt.background:                 [100]#2e3440
 URxvt*scrollBar:                  false
 URxvt*mouseWheelScrollPage:       false
-URxvt*cursorBlink:                true
-URxvt*background:                 black
-URxvt*foreground:                 grey
+URxvt*cursorBlink:                false
+! URxvt*background:                 black
+URxvt*foreground:                 #e5e9f0
 URxvt*saveLines:                  5000
 
 ! for 'fake' transparency (without Compton) uncomment the following three lines
@@ -98,7 +143,7 @@ URxvt.keysym.M-C-v:              perl:clipboard:paste_escaped
 ! URxvt*scrollWithBuffer:          boolean
 ! URxvt*tintColor:                 !7DA55
 ! URxvt*blurRadius:                HxV
-! URxvt*fading:                    number
+URxvt*fading:                    0
 ! URxvt*fadeColor:                 color
 ! URxvt*utmpInhibit:               boolean
 ! URxvt*urgentOnBell:              boolean
