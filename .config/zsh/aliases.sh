@@ -4,9 +4,10 @@ alias qaac_release=/mnt/hephaestos/qaac/qaac91
 alias define='python /home/kageru/programming/mwebster/mwebster.py'
 alias nanaone-stream='mpv rtmp://live1.brb.re/live/nanaone'
 alias ls='exa'
+alias feg=feh # don’t ask
 alias exat='exa --tree -L 3'
 alias animesync='python /home/kageru/programming/animesync-personal/animesync.py'
-alias autoremove='sudo pacaur -R $(pacaur -Qdtq)'
+#alias autoremove='sudo pacman -R $(pacaur -Qdtq)'
 export EDITOR=/usr/bin/vim
 #alias nt='alacritty --working-directory $PWD &'
 alias nt='urxvt -cd $PWD &'
@@ -26,6 +27,10 @@ alias colorpicker="maim -st 0 | convert - -resize 1x1\! -format '%[pixel:p{0,0}]
 alias fixgit='eval "$(ssh-agent -s)"; ssh-add ~/.ssh/git'
 alias sv='systemctl'
 alias xo='xdg-open'
+alias resetgamma='xrandr --output DVI-D-0 --gamma 1:1:1 --output HDMI-1 --gamma 1:1:1 --output HDMI-0 --gamma 1:1:1 --output DP-0 --gamma 1:1:1'
+alias texbuild='pdflatex -interaction=nonstopmode'
+alias weather='curl wttr.in/karlsruhe -s | head -n 7 -'
+alias weathertoday='curl wttr.in/karlsruhe -s | head -n 17 -'
 
 alias config='/usr/bin/git --git-dir=/home/kageru/dotfiles/ --work-tree=/home/kageru'
 alias -g ...='../../'           #cd ...
