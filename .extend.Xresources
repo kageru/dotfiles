@@ -44,6 +44,83 @@
 *color14:      base0E
 *color15:      base0F
 
+
+! special
+*.foreground:   #c5c8c6
+*.background:   #313132
+*.cursorColor:  #c5c8c6
+
+! black
+*.color0:       #1d1f21
+*.color8:       #969896
+
+! red
+*.color1:       #cc4444
+*.color9:       #d63333
+
+! green
+*.color2:       #95bd41
+*.color10:      #8dc910
+
+! yellow
+*.color3:       #e1b153
+*.color11:      #f5af27
+
+! blue
+*.color4:       #43a2f3
+*.color12:      #43a9ff
+
+! magenta
+*.color5:       #b286be
+*.color13:      #bc79d0
+
+! cyan
+*.color6:       #50c0d8
+*.color14:      #47d3ef
+
+! white
+*.color7:       #d6d6d6
+*.color15:      #ffffff
+
+
+! special
+*.foreground:   #c5c8c6
+*.background:   #313132
+*.cursorColor:  #c5c8c6
+
+! black
+*.color0:       #313132
+*.color8:       #969896
+
+! red
+*.color1:       #cc6b6b
+*.color9:       #d66969
+
+! green
+*.color2:       #a2bd6b
+*.color10:      #a5c959
+
+! yellow
+*.color3:       #e1c48b
+*.color11:      #f5ca76
+
+! blue
+*.color4:       #81bff3
+*.color12:      #6ebcff
+
+! magenta
+*.color5:       #b593be
+*.color13:      #c18fd0
+
+! cyan
+*.color6:       #83c9d8
+*.color14:      #79cedf
+
+! white
+*.color7:       #d6d6d6
+*.color15:      #ffffff
+
+
 !*background:                      #272827
 !*foreground:                      #657b83
 !*fading:                          15
@@ -95,7 +172,6 @@ XTerm*selectToClipboard:          true
 
 ! URxvt.font:                       9x15
 
-! alternative font settings with 'terminus':
 URxvt.font:        xft:Hack:size=11
 URxvt.boldFont:    xft:Hack:size=11
 !URxvt.font:      -xos4-terminus-medium-r-normal--32-320-72-72-c-140-iso10646-1
@@ -106,12 +182,12 @@ URxvt.boldFont:    xft:Hack:size=11
 !! terminus names see end of file!
 
 URxvt.depth:                      24
-URxvt.background:                 [100]#2e3440
+!URxvt.background:                 [100]#2e3440
 URxvt*scrollBar:                  false
 URxvt*mouseWheelScrollPage:       false
 URxvt*cursorBlink:                false
 ! URxvt*background:                 black
-URxvt*foreground:                 #e5e9f0
+!URxvt*foreground:                 #e5e9f0
 URxvt*saveLines:                  5000
 
 ! for 'fake' transparency (without Compton) uncomment the following three lines
@@ -120,7 +196,7 @@ URxvt*saveLines:                  5000
 ! URxvt*shading:                  138
 
 ! other possible settings:
-Rxvt.perl-ext-common:            ...,clipboard
+Rxvt.perl-ext-common:            clipboard
 URxvt.keysym.M-C-c:              perl:clipboard:copy
 URxvt.keysym.M-v:                perl:clipboard:paste
 URxvt.keysym.M-C-v:              perl:clipboard:paste_escaped
@@ -206,7 +282,7 @@ URxvt*fading:                    0
 ! URxvt*internalBorder:            number
 ! URxvt*borderLess:                true
 ! URxvt*lineSpace:                 number
-! URxvt*letterSpace:               number
+! URxvt*letterSpace:                 -3
 ! URxvt*skipBuiltinGlyphs:         boolean
 ! URxvt*pointerBlankDelay:         number
 ! URxvt*backspacekey:              string
