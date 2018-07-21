@@ -8,8 +8,8 @@
 ;=====================================================
 
 [colors]
-background = #002b2c2c
-background-alt = #88181316
+background = #80303031
+background-alt = #303031
 foreground = #fafbfb
 foreground-alt = #dddddd
 primary = #fafbfb
@@ -157,7 +157,7 @@ modules-right = cpu memory filesystem date
 tray-position = center
 tray-padding = 2
 tray-transparent = true
-tray-background = #880063ff
+tray-background = #80303031
 
 ;wm-restack = bspwm
 wm-restack = i3
@@ -278,7 +278,7 @@ icon-next = »
 
 label-offline = mpd is offline
 ; Only applies if <bar-progress> is used
-bar-progress-width = 30
+bar-progress-width = 10
 bar-progress-indicator = |
 bar-progress-fill = ─
 bar-progress-empty = ─

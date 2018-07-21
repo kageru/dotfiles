@@ -1,3 +1,23 @@
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install bundles
+"let path = '~/some/path/here'
+"call vundle#rc(path)
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'zah/nim.vim'
+Plugin 'scrooloose/syntastic'
+Plugin 'w0ng/vim-hybrid'
+
+call vundle#end()            " required
+filetype plugin indent on
+
+
 set number
 set showmatch
  
@@ -24,25 +44,11 @@ set autochdir
 set undolevels=1000
 set backspace=indent,eol,start
 
-colorscheme nord
+let g:hybrid_custom_term_colors = 1
+let g:hybrid_reduced_contrast = 1
+set background=dark
+colorscheme hybrid
 syntax on
-
-set nocompatible              " be iMproved, required
-filetype off                  " required
-
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-" alternatively, pass a path where Vundle should install bundles
-"let path = '~/some/path/here'
-"call vundle#rc(path)
-
-" let Vundle manage Vundle, required
-Bundle 'gmarik/vundle'
-Bundle 'zah/nim.vim'
-Bundle 'scrooloose/syntastic'
-
-filetype plugin indent on     " required
 
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
