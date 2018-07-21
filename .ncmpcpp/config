@@ -13,7 +13,7 @@ seek_time = "5"
 default_find_mode = "wrapped"
 jump_to_now_playing_song_at_start = "yes"
 regular_expressions = "extended"
-search_engine_default_search_mode = "2"
+search_engine_default_search_mode = "1"
 external_editor = "vim"
 use_console_editor = "yes"
 
