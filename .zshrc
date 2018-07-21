@@ -2,7 +2,6 @@ export PATH=$PATH:~/bin
 
 [ -f ~/.config/zsh/aliases.sh ] && source ~/.config/zsh/aliases.sh
 
-fixgit
 
 autoload -Uz vcs_info
 autoload -U colors && colors
@@ -25,10 +24,12 @@ setopt prompt_subst
 
 # I usually change the hostname color between my systems
 hostcolor="4"
-PROMPT="%(!.%F{1}[%F{3}%n%F{1}@%F{$hostcolor}%m %F{3}%c%F{5}\${vcs_info_msg_0_}%F{1}] %(?/%F{3}/%F{1})#.%F{3}[%F{1}%n%F{3}@%F{$hostcolor}%m %F{146}%c%F{111}\${vcs_info_msg_0_}%F{3}] %(?/%F{3}/%F{2})Δ)%f "
+bgcolor="16"
+PROMPT="%(!.%F{3}[%F{1}%n%F{3}@%F{$hostcolor}%m %F{3}%c%F{5}\${vcs_info_msg_0_}%F{3}] %(?/%F{2}/%F{1})#.\
+%F{1}[%F{3}%n%F{1}@%F{$hostcolor}%m %F{146}%c%F{111}\${vcs_info_msg_0_}%F{1}] %(?/%F{2}/%F{1})Δ)%f "
 
 # the same prompt without git/vcs stuff
-# PROMPT="%(!.%F{4}[%F{4}%n%F{2}@%F{$hostcolor}%m %F{4}%c%F{2}] %(?/%F{2}/%F{1})#.%F{4}[%F{2}%n%F{4}@%F{$hostcolor}%m %F{146}%c%F{4}] %(?/%F{2}/%F{1})Δ)%f "
+#PROMPT="%(!.%F{3}[%F{1}%n%F{3}@%F{$hostcolor}%m %F{3}%c%F{5}%F{3}] %(?/%F{2}/%F{1})#.%F{1}[%F{3}%n%F{1}@%F{$hostcolor}%m %F{146}%c%F{111}%F{1}] %(?/%F{2}/%F{1})Δ)%f "
 
 autoload -Uz compinit
 compinit
@@ -76,4 +77,3 @@ zstyle ':completion:*:warnings' format '%B%U---- no match for: %d%u%b' # Describ
 zstyle ':completion:*:options' description 'yes'
 zstyle ':completion:*:options' auto-description '%d'
 
-clear
