@@ -42,7 +42,7 @@ bindsym XF86AudioLowerVolume exec pactl set-sink-volume alsa_output.pci-0000_00_
 # workspace_layout tabbed <stacking|tabbed>
 
 # Configure border style <normal|1pixel|pixel xx|none|pixel>
-new_window pixel 3
+new_window pixel 2
 new_float pixel 4
 #new_window pixel 1
 #new_float normal
@@ -52,7 +52,7 @@ hide_edge_borders none
 
 # change borders
 bindsym $mod+u border none
-bindsym $mod+y border pixel 1
+bindsym $mod+y border pixel 2
 bindsym $mod+n border normal
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -118,10 +118,10 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+h move left
-bindsym $mod+Shift+j move down
-bindsym $mod+Shift+k move up
-bindsym $mod+Shift+l move right
+bindsym $mod+Shift+h move left 40px
+bindsym $mod+Shift+j move down 40px
+bindsym $mod+Shift+k move up 40px
+bindsym $mod+Shift+l move right 40px
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -135,8 +135,8 @@ bindsym $mod+b workspace back_and_forth
 bindsym $mod+Shift+b move container to workspace back_and_forth; workspace back_and_forth
 
 # split orientation
-bindsym $mod+g split h;exec notify-send 'tile horizontally'
-bindsym $mod+v split v;exec notify-send 'tile vertically'
+bindsym $mod+g split h
+bindsym $mod+v split v
 bindsym $mod+q split toggle
 
 # toggle fullscreen mode for the focused container
@@ -201,7 +201,7 @@ workspace $ws11 output DVI-D-0
 workspace $ws2 output DP-0
 workspace $ws12 output DP-0
 workspace $ws3 output HDMI-1
-workspace $ws11 output HDMI-1
+workspace $ws13 output HDMI-1
 workspace $ws4 output DVI-D-0
 workspace $ws18 output HDMI-0
 workspace $ws19 output HDMI-0
@@ -257,58 +257,36 @@ bindsym $mod+Shift+6 move container to workspace $ws6; workspace $ws6
 bindsym $mod+Shift+7 move container to workspace $ws7; workspace $ws7
 bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 
-bindsym $mod+Shift+KP_1 move container to workspace $ws9; workspace $ws11
-bindsym $mod+Shift+KP_2 move container to workspace $ws10; workspace $ws12
-bindsym $mod+Shift+KP_3 move container to workspace $ws11; workspace $ws13
-bindsym $mod+Shift+KP_4 move container to workspace $ws12; workspace $ws14
-bindsym $mod+Shift+KP_5 move container to workspace $ws13; workspace $ws15
-bindsym $mod+Shift+KP_6 move container to workspace $ws14; workspace $ws16
-bindsym $mod+Shift+KP_7 move container to workspace $ws15; workspace $ws17
-bindsym $mod+Shift+KP_8 move container to workspace $ws16; workspace $ws18
-bindsym $mod+Shift+KP_9 move container to workspace $ws17; workspace $ws19
+bindsym $mod+Shift+KP_1 move container to workspace $ws11; workspace $ws11
+bindsym $mod+Shift+KP_2 move container to workspace $ws12; workspace $ws12
+bindsym $mod+Shift+KP_3 move container to workspace $ws13; workspace $ws13
+bindsym $mod+Shift+KP_4 move container to workspace $ws14; workspace $ws14
+bindsym $mod+Shift+KP_5 move container to workspace $ws15; workspace $ws15
+bindsym $mod+Shift+KP_6 move container to workspace $ws16; workspace $ws16
+bindsym $mod+Shift+KP_7 move container to workspace $ws17; workspace $ws17
+bindsym $mod+Shift+KP_8 move container to workspace $ws18; workspace $ws18
+bindsym $mod+Shift+KP_9 move container to workspace $ws19; workspace $ws19
 
 # Autostart
-exec --no-startup-id i3-msg 'workspace $ws4; layout stacking; exec thunderbird; exec hexchat'
-exec --no-startup-id i3-msg 'workspace $ws3; exec keepassxc; workspace $ws1'
+exec ~/bin/autostart
+exec --no-startup-id i3-msg 'workspace $ws4; layout stacking; exec keepassxc; exec thunderbird; exec hexchat'
 exec_always ~/bin/restart_polybar
 
 # Open applications on specific workspaces
 # assign [class="mpv"] $ws5
 assign [class="Thunderbird"] $ws4
+assign [class=".*discord.*"] $ws1
+assign [class="steam"] $ws3
 
 # Open specific applications in floating mode
-for_window [title="alsamixer"] floating enable border pixel 1
-for_window [class="Calamares"] floating enable border normal
-for_window [class="Clipgrab"] floating enable
-for_window [title="File Transfer*"] floating enable
-for_window [class="Galculator"] floating enable border pixel 1
-#for_window [class="GParted"] floating enable border normal
-for_window [title="i3_help"] floating enable sticky enable border normal
-for_window [class="Lightdm-gtk-greeter-settings"] floating enable
-for_window [class="Lxappearance"] floating enable sticky enable border normal
-for_window [class="Manjaro-hello"] floating enable
-for_window [class="Manjaro Settings Manager"] floating enable border normal
-for_window [title="MuseScore: Play Panel"] floating enable
-for_window [class="Nitrogen"] floating enable sticky enable border normal
-for_window [class="Oblogout"] fullscreen enable
-for_window [class="octopi"] floating enable
-for_window [title="About Pale Moon"] floating enable
-for_window [class="Pamac-manager"] floating enable
 for_window [class="Pavucontrol"] floating enable
-for_window [class="qt5ct"] floating enable sticky enable border normal
-for_window [class="Qtconfig-qt4"] floating enable sticky enable border normal
-for_window [class="Simple-scan"] floating enable border normal
-for_window [class="(?i)System-config-printer.py"] floating enable border normal
-for_window [class="Thus"] floating enable border normal
-for_window [class="Timeset-gui"] floating enable border normal
 for_window [class="(?i)virtualbox"] floating enable border normal
-for_window [class="Xfburn"] floating enable
 for_window [class="mpv"] floating enable
 for_window [class="feh"] floating enable
 
 
 # switch to workspace with urgent window automatically
-for_window [urgent=latest] focus
+for_window [urgent=latest] none
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -344,21 +322,23 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym h resize shrink width 5 px or 5 ppt
-        bindsym j resize grow height 5 px or 5 ppt
-        bindsym k resize shrink height 5 px or 5 ppt
-        bindsym l resize grow width 5 px or 5 ppt
+        bindsym h resize shrink width 20 px or 10 ppt
+        bindsym j resize grow height 20 px or 10 ppt
+        bindsym k resize shrink height 20 px or 10 ppt
+        bindsym l resize grow width 20 px or 10 ppt
 
         # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
+        bindsym Left resize shrink width 2 px or 1 ppt
+        bindsym Down resize grow height 2 px or 1 ppt
+        bindsym Up resize shrink height 2 px or 1 ppt
+        bindsym Right resize grow width 2 px or 1 ppt
 
         # exit resize mode: Enter or Escape
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
+
+
 
 # Lock screen
 bindsym $mod+9 exec --no-startup-id i3lock -i ~/Pictures/bg.png -ut
@@ -426,9 +406,12 @@ set $i3_color4 #d8dee9
 set $i3_color5 #e5e9f0
 set $i3_color6 #eceff4
 set $i3_color7 #8fbcbb
-set $i3_color8 #88c0d0
-set $i3_color9 #81a1c1
-set $i3_color10 #5e81ac
+#set $i3_color8 #88c0d0
+#set $i3_color9 #81a1c1
+#set $i3_color10 #5e81ac
+set $i3_color8 #aaaaaa
+set $i3_color9 #999999
+set $i3_color10 #666666
 set $i3_color11 #bf616a
 set $i3_color12 #d08770
 set $i3_color13 #ebcb8b
