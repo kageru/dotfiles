@@ -38,11 +38,17 @@ export WINEDEBUG=-all
 
 # Get completion above command line
 setopt noalwayslastprompt
-setopt noauto_remove_slash
 setopt list_types
 setopt complete_in_word
 
-export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+if [ ! -S ~/.ssh/ssh_auth_sock ]; then
+  eval `ssh-agent`
+  ln -sf "$SSH_AUTH_SOCK" ~/.ssh/ssh_auth_sock
+fi
+export SSH_AUTH_SOCK=~/.ssh/ssh_auth_sock
+ssh-add -l > /dev/null || ssh-add
+ssh-add ~/.ssh/git
+clear
 
 # disclaimer: I blatantly copied all of this without actually knowing what it does. ¯\_(ツ)_/¯
 
