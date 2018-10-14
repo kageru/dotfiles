@@ -136,12 +136,12 @@ code {
     left: 0;
 }
 
-.containerCompact-3V0ioj .usernameWrapper-1S-G5O {
+.containerCompact-3V0ioj .usernameWrapper-1S-G5O, *[class^="username"] {
     display: inline-block;
     text-align: right;
     width: var(--username-width);
     overflow: hidden;
-    text-overflow: ellipsis;
+    text-overflow: clip;
     padding-bottom: 1px; /* for on-hover underline on border; user_style.css */
 }
 
