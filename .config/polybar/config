@@ -8,8 +8,8 @@
 ;=====================================================
 
 [colors]
-background = #80303031
-background-alt = #303031
+background = #00303031
+background-alt = #00303031
 foreground = #fafbfb
 foreground-alt = #dddddd
 primary = #fafbfb
@@ -23,12 +23,12 @@ override-redirect = true
 wm-restack = i3
 
 [bar/right]
-monitor = ${env:MONITOR:HDMI-1}
+monitor = ${env:MONITOR:HDMI-0}
 width = 100%
-height = 48
+height = 32
 ;offset-x = 1%
 ;offset-y = 1%
-radius = 12.0
+radius = 4.0
 fixed-center = true
 bottom = true
 
@@ -49,7 +49,7 @@ module-margin-right = 2
 
 ; I’m a weeb who also listens to weeb music, so I needed a font with Kanji
 font-0 = "Noto Sans CJK JP Regular:size=11;1"
-font-1 = "Noto Sans CJK JP Regular:size=11;1"
+font-1 = "Wuncon Siji:size=11;1"
 font-2 = "Noto Sans CJK JP Regular:size=11;1"
 
 modules-left = i3 mpd 
@@ -76,7 +76,7 @@ cursor-scroll = ns-normal
 [bar/left]
 monitor = ${env:MONITOR:DVI-D-0}
 width = 100%
-height = 27
+height = 22
 ;offset-x = 1%
 ;offset-y = 1%
 radius = 6.0
@@ -124,12 +124,12 @@ cursor-scroll = ns-normal
 [bar/main]
 monitor = ${env:MONITOR:DP-0}
 width = 100%
-height = 27
+height = 28
 ;offset-x = 1%
 ;offset-y = 1%
-radius = 6.0
+radius = 2.0
 fixed-center = true
-bottom = true
+bottom = false
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -236,23 +236,23 @@ label-mode-foreground = #000
 label-mode-background = ${colors.primary}
 
 ; focused = Active workspace on focused monitor
-label-focused = %index%
+label-focused = %name%
 label-focused-background = ${module/bspwm.label-focused-background}
 label-focused-underline = ${module/bspwm.label-focused-underline}
 label-focused-padding = ${module/bspwm.label-focused-padding}
 
 ; unfocused = Inactive workspace on any monitor
-label-unfocused = %index%
+label-unfocused = %name%
 label-unfocused-padding = ${module/bspwm.label-occupied-padding}
 
 ; visible = Active workspace on unfocused monitor
-label-visible = %index%
+label-visible = %name%
 label-visible-background = ${self.label-focused-background}
 label-visible-underline = ${self.label-focused-underline}
 label-visible-padding = ${self.label-focused-padding}
 
 ; urgent = Workspace with urgency hint set
-label-urgent = %index%
+label-urgent = %name%
 label-urgent-background = ${module/bspwm.label-urgent-background}
 label-urgent-padding = ${module/bspwm.label-urgent-padding}
 

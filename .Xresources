@@ -1,13 +1,14 @@
 #if __has_include(".extend.Xresources")
 #include ".extend.Xresources"
 #endif
+!#include ".xsolarized"
 
 ! ^ The above lines are no comments!
 ! Leave them as they are if a file ~/.extend.Xresources is being used on your system.
 ! config can be added there or also here below.
 ! For comments use "!"
 
-Xft.dpi: 91
+Xft.dpi: 109
 Xft.antialias: true
 Xft.hinting: true
 Xft.rgba: rgb
@@ -20,6 +21,7 @@ XTerm*foreground: #e7e7e7
 XTerm*pointerColor: #16A085
 XTerm*faceName: Hack
 XTerm*faceSize: 11
+URxvt.intensityStyles: false
 
 
 ! ROFI COLORS
