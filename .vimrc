@@ -14,9 +14,14 @@ Plugin 'zah/nim.vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'w0ng/vim-hybrid'
 Plugin 'rust-lang/rust.vim'
+Plugin 'fatih/vim-go'
+Plugin 'udalov/kotlin-vim'
+Plugin 'Valloric/YouCompleteMe'
+"Plugin 'zxqfl/tabnine-vim'
 
 call vundle#end()            " required
-filetype plugin indent on
+"set rtp+=~/code/tabnine-vim
+filetype plugin on
 
 
 set number
