@@ -22,6 +22,7 @@ Plugin 'Valloric/YouCompleteMe'
 call vundle#end()            " required
 "set rtp+=~/code/tabnine-vim
 filetype plugin on
+autocmd BufNewFile,BufRead *.vpy setfiletype python
 
 
 set number
