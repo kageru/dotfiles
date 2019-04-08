@@ -1,7 +1,20 @@
-export PATH=$PATH:~/bin
+export GOPATH=~/go
+export PATH=$PATH:~/bin:~/go/bin
 
 [ -f ~/.config/zsh/aliases.sh ] && source ~/.config/zsh/aliases.sh
 
+SAVEHIST=100000
+HISTFILE=~/.zhistory
+HISTSIZE=100000
+
+setopt appendhistory
+
+source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
+
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+bindkey -M vicmd 'k' history-substring-search-up
+bindkey -M vicmd 'j' history-substring-search-down
 
 autoload -Uz vcs_info
 autoload -U colors && colors
@@ -23,10 +36,10 @@ precmd () {
 setopt prompt_subst
 
 # I usually change the hostname color between my systems
-hostcolor="4"
+hostcolor="6"
 bgcolor="16"
 PROMPT="%(!.%F{3}[%F{1}%n%F{3}@%F{$hostcolor}%m %F{3}%c%F{5}\${vcs_info_msg_0_}%F{3}] %(?/%F{2}/%F{1})#.\
-%F{1}[%F{3}%n%F{1}@%F{$hostcolor}%m %F{146}%c%F{111}\${vcs_info_msg_0_}%F{1}] %(?/%F{2}/%F{1})Δ)%f "
+%F{1}[%F{3}%n%F{1}@%F{$hostcolor}%m %F{5}%c%F{4}\${vcs_info_msg_0_}%F{1}] %(?/%F{2}/%F{1}))%f "
 
 # the same prompt without git/vcs stuff
 #PROMPT="%(!.%F{3}[%F{1}%n%F{3}@%F{$hostcolor}%m %F{3}%c%F{5}%F{3}] %(?/%F{2}/%F{1})#.%F{1}[%F{3}%n%F{1}@%F{$hostcolor}%m %F{146}%c%F{111}%F{1}] %(?/%F{2}/%F{1})Δ)%f "
@@ -43,13 +56,13 @@ setopt complete_in_word
 
 if [ ! -S ~/.ssh/ssh_auth_sock ]; then
   eval `ssh-agent`
-  ssh-add -l > /dev/null || ssh-add
   ln -sf "$SSH_AUTH_SOCK" ~/.ssh/ssh_auth_sock
+  ssh-add ~/.ssh/git
+  ssh-add ~/.ssh/aur_ecdsa
+  ssh-add ~/.ssh/maria
 fi
-
 export SSH_AUTH_SOCK=~/.ssh/ssh_auth_sock
-ssh-add ~/.ssh/git
-clear
+ssh-add -l > /dev/null || ssh-add
 
 # disclaimer: I blatantly copied all of this without actually knowing what it does. ¯\_(ツ)_/¯
 
@@ -84,3 +97,11 @@ zstyle ':completion:*:warnings' format '%B%U---- no match for: %d%u%b' # Describ
 zstyle ':completion:*:options' description 'yes'
 zstyle ':completion:*:options' auto-description '%d'
 
+setopt nonomatch
+
+source /usr/share/fzf/key-bindings.zsh
+
+BASE16_SHELL="$HOME/.config/base16-shell/"
+[ -n "$PS1" ] && \
+    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
+        eval "$("$BASE16_SHELL/profile_helper.sh")"
