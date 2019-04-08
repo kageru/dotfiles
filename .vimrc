@@ -17,6 +17,9 @@ Plugin 'rust-lang/rust.vim'
 Plugin 'fatih/vim-go'
 Plugin 'udalov/kotlin-vim'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'phanviet/vim-monokai-pro'
+Plugin 'wincent/command-t'
+
 "Plugin 'zxqfl/tabnine-vim'
 
 call vundle#end()            " required
@@ -55,7 +58,10 @@ set backspace=indent,eol,start
 let g:hybrid_custom_term_colors = 1
 let g:hybrid_reduced_contrast = 1
 set background=dark
-colorscheme hybrid
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+set termguicolors
+colorscheme monokai_pro
 syntax on
 
 set statusline+=%#warningmsg#
@@ -64,6 +70,9 @@ set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
+let g:syntastic_check_on_write = 0
+let g:syntastic_mode_map = { 'mode': 'passive' }
+nmap <F2> :SyntasticCheck<CR>
 
