@@ -50,7 +50,7 @@ bindsym XF86AudioLowerVolume exec amixer -D pulse sset Master 5%-; exec --no-sta
 # workspace_layout tabbed <stacking|tabbed>
 
 # Configure border style <normal|1pixel|pixel xx|none|pixel>
-new_window pixel 1
+new_window none
 new_float pixel 1
 #new_window pixel 1
 #new_float normal
@@ -96,9 +96,9 @@ bindsym $mod+Ctrl+m exec pavucontrol
 bindsym $mod+Ctrl+b exec terminal -e 'bmenu'
 bindsym $mod+F2 exec chromium
 #bindsym $mod+F3 exec cool-retro-term -e ranger
-bindsym $mod+F3 exec st -e ranger
-bindsym $mod+Shift+F3 exec gksu pcmanfm
-bindsym $mod+F5 exec st -e 'ncmpcpp'
+# these workarounds are necessary because I use base16 in zsh to set my terminal colors
+bindsym $mod+F3 exec st -e zsh -ci ranger
+bindsym $mod+F5 exec st -e zsh -ci ncmpcpp
 bindsym $mod+t exec --no-startup-id pkill compton
 bindsym $mod+Ctrl+t exec --no-startup-id compton -b
 bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
@@ -454,8 +454,8 @@ client.background       $i3_background
 #############################
 
 # Set inner/outer gaps
-gaps inner 10
-gaps outer 0
+gaps inner 30
+gaps outer -10
 
 # Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
 # gaps inner|outer current|all set|plus|minus <px>
@@ -463,7 +463,7 @@ gaps outer 0
 # gaps outer all plus 5
 
 # Smart gaps (gaps used if only more than one container on the workspace)
-#smart_gaps on
+smart_gaps on
 
 # Smart borders (draw borders around container only if it is not the only container on this workspace) 
 # on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
