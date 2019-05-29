@@ -2,11 +2,13 @@
 
 rm -rf /home/kageru/temp/*
 cp ~/webpw.kdbx /mnt/gaia/
+cp ~/webpw.kdbx ~/Sync/webpw.kdbx
 fcitx
-#syncthing &
+sshfs -i ~/.ssh/lain lain:/home/kgt/download /mnt/lain -C &
+syncthing &
 # xsetwacom --set 12 Area -14900 0 44400 16000
-# xrandr --fb 15360x2161 --dpi 192x192 --output DVI-D-0 --scale 2x2.0008 --pos 0x0 --panning 3840x2161+0+0 --output DP-0 --scale 2x2.0008 --panning 3840x2161+3840+0 --rate 144 --output HDMI-1 --panning 3840x2160+7680+0 --output HDMI-0 --scale 2x2.0008 --panning 3840x2161+11520+0
 xrandr --fb 8320x2160 --output DVI-D-0 --pos 0x0 --mode 1920x1080 --rate 144 --output DP-0 --mode 2560x1440 --rate 144 --right-of DVI-D-0 --output HDMI-0 --right-of DP-0 --dpi 109x109
+#xrandr --fb 6400x2520 --output DP-0 --mode 2560x1440 --rate 144 --pos 0x0 --output DVI-D-0 --mode 1920x1080 --rate 144 --below DP-0 --output HDMI-0 --right-of DP-0 --dpi 109x109
 ~/bin/fixkeyboard
 ~/.fehbg
 xrdb ~/.Xresources

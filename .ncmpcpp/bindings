@@ -191,6 +191,8 @@ def_key "K"
     select_item
     scroll_up
 
+def_key "x"
+  delete_playlist_items
 
 #def_key "mouse"
 #  mouse_event

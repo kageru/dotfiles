@@ -7,12 +7,11 @@ alias ls='exa'
 alias up='sudo pacman -Syu'
 alias in='sudo pacman -S'
 alias feg=feh # don’t ask
-alias exat='exa --tree -L 3'
+alias tree='exa --tree'
 alias animesync='python /home/kageru/programming/animesync-personal/animesync.py'
 #alias autoremove='sudo pacman -R $(pacaur -Qdtq)'
-export EDITOR=/usr/bin/vim
-#alias nt='alacritty --working-directory $PWD &'
-alias nt='urxvtc -cd $PWD &'
+alias nt='alacritty --working-directory $PWD &'
+#alias nt='urxvtc -cd $PWD &'
 alias ej='udisksctl power-off -b'
 alias monitor_on='pactl load-module module-loopback'
 alias monitor_off='pactl unload-module module-loopback'
@@ -31,17 +30,25 @@ alias sv='systemctl'
 alias xo='xdg-open'
 alias resetgamma='xrandr --output DVI-D-0 --gamma 1:1:1 --output HDMI-1 --gamma 1:1:1 --output HDMI-0 --gamma 1:1:1 --output DP-0 --gamma 1:1:1'
 alias texbuild='pdflatex -interaction=nonstopmode'
-alias weather='curl wttr.in/karlsruhe -s | head -n 7 -'
+alias weather='curl wttr.in/hamburg -s | head -n 7 -'
 alias weathertoday='curl wttr.in/karlsruhe -s | head -n 17 -'
 alias playdir='for f in ./*; do; mpv $f; done;'
 alias mntusb='sudo mount /dev/sdi1 ~/usb'
 alias mntphone='simple-mtpfs --device 1 ~/usb'
 alias umubs='sudo umount ~/usb'
+alias gst='git status'
+alias gco='git checkout'
+alias blps='~/.steam/steam/steamapps/common/BorderlandsPreSequel/BorderlandsPreSequel'
+alias dir2flac='for f in *.wav; do; ffmpeg -i "$f" -compression_level 12 "`basename "$f" .wav`.flac"; done;'
+alias vpnon='sudo systemctl start openvpn-client@client.service'
+alias vpnoff='sudo systemctl stop openvpn-client@client.service'
 
 alias config='/usr/bin/git --git-dir=/home/kageru/dotfiles/ --work-tree=/home/kageru'
 alias -g ...='../../'           #cd ...
 alias -g ....='../../../'       #cd ....
 alias -g .....='../../../../'   #cd .....
+alias :q='exit'
+alias :wq='exit'
 
 alias sprunge="curl -F 'sprunge=<-' http://sprunge.us"
 

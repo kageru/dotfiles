@@ -8,19 +8,18 @@
 ;=====================================================
 
 [colors]
-background = #00303031
-background-alt = #00303031
-foreground = #fafbfb
-foreground-alt = #dddddd
-primary = #fafbfb
-secondary = #dddddd
-green = #8dd151
-alert = #9b3331
+background = #002d2a2e
+background-alt = #002d2a2e
+foreground = #555555
+foreground-alt = #555555
+primary = #fcfcfa
+secondary = #dcdcda
+green = #a9dc76
+alert = #ff6188
 
 
 [bar/custom]
 override-redirect = true
-wm-restack = i3
 
 [bar/right]
 monitor = ${env:MONITOR:HDMI-0}
@@ -48,17 +47,15 @@ module-margin-left = 2
 module-margin-right = 2
 
 ; I’m a weeb who also listens to weeb music, so I needed a font with Kanji
-font-0 = "Noto Sans CJK JP Regular:size=11;1"
-font-1 = "Wuncon Siji:size=11;1"
-font-2 = "Noto Sans CJK JP Regular:size=11;1"
+font-0 = "Noto Sans CJK JP:bold:size=11"
+font-1 = "Wuncon Siji:size=11"
+font-2 = "Noto Sans CJK JP:bold:size=11"
 
 modules-left = i3 mpd 
 modules-center = 
 ; add battery here when using a mobile device
 modules-right = cpu memory filesystem date
 
-;wm-restack = bspwm
-wm-restack = i3
 
 ;override-redirect = true
 
@@ -69,9 +66,6 @@ scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
 
 cursor-click = pointer
-cursor-scroll = ns-normal
-
-
 
 [bar/left]
 monitor = ${env:MONITOR:DVI-D-0}
@@ -98,16 +92,13 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = "Noto Sans CJK JP Regular:size=11;1"
-font-1 = "Noto Sans CJK JP Regular:size=11;1"
-font-2 = "Noto Sans CJK JP Regular:size=11;1"
+font-0 = "Noto Sans CJK JP:size=11;1"
+font-1 = "Wuncon Siji:size=11;1"
+font-2 = "Noto Sans CJK JP:size=11;1"
 
 modules-left = i3 mpd
 modules-center = 
 modules-right = cpu memory filesystem date
-
-;wm-restack = bspwm
-wm-restack = i3
 
 ;override-redirect = true
 
@@ -118,8 +109,6 @@ scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
 
 cursor-click = pointer
-cursor-scroll = ns-normal
-
 
 [bar/main]
 monitor = ${env:MONITOR:DP-0}
@@ -146,21 +135,17 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = "Noto Sans CJK JP Regular:size=11;1"
-font-1 = "Noto Sans CJK JP Regular:size=11;1"
-font-2 = "Noto Sans CJK JP Regular:size=11;1"
+font-0 = "Noto Sans CJK JP:size=11;1"
+font-1 = "Wuncon Siji:size=11;1"
+font-2 = "Noto Sans CJK JP:size=11;1"
 
 modules-left = i3 mpd
 modules-center = 
 modules-right = cpu memory filesystem date
 
-tray-position = center
+tray-position = none
 tray-padding = 2
-tray-transparent = true
-tray-background = #80303031
-
-;wm-restack = bspwm
-wm-restack = i3
+tray-background = #00303031
 
 ;override-redirect = true
 
@@ -171,7 +156,6 @@ scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
 
 cursor-click = pointer
-cursor-scroll = ns-normal
 
 [module/xwindow]
 type = internal/xwindow
@@ -198,6 +182,7 @@ type = internal/fs
 interval = 25
 
 mount-0 = /
+mount-1 = /home
 
 label-mounted = %free%
 label-unmounted = %mountpoint% not mounted

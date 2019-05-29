@@ -4,8 +4,6 @@
 # Set mod key (Mod1=<Alt>, Mod4=<Super>)
 set $mod Mod4
 
-exec ~/bin/autostart
-
 # custom
 
 bindsym $mod+Shift+Return exec cool-retro-term;
@@ -273,7 +271,6 @@ bindsym $mod+Shift+KP_8 move container to workspace $ws18; workspace $ws18
 bindsym $mod+Shift+KP_9 move container to workspace $ws19; workspace $ws19
 
 exec --no-startup-id i3-msg 'workspace $ws4; layout stacking; exec keepassxc; exec thunderbird; exec hexchat'
-exec_always ~/bin/restart_polybar
 
 # Open applications on specific workspaces
 # assign [class="mpv"] $ws5
@@ -348,8 +345,9 @@ mode "resize" {
 bindsym $mod+9 exec --no-startup-id i3lock -i ~/Pictures/bg.png -ut
 
 # Autostart applications
-exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec ~/bin/autostart
 exec --no-startup-id compton -b
+exec_always ~/bin/restart_polybar
 
 # Color palette used for the terminal ( ~/.extend.Xresources file )
 # Colors are gathered based on the documentation:
@@ -454,8 +452,8 @@ client.background       $i3_background
 #############################
 
 # Set inner/outer gaps
-gaps inner 30
-gaps outer -10
+gaps inner 0
+gaps outer 0
 
 # Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
 # gaps inner|outer current|all set|plus|minus <px>
@@ -463,7 +461,7 @@ gaps outer -10
 # gaps outer all plus 5
 
 # Smart gaps (gaps used if only more than one container on the workspace)
-smart_gaps on
+smart_gaps yes
 
 # Smart borders (draw borders around container only if it is not the only container on this workspace) 
 # on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
@@ -482,8 +480,8 @@ mode "$mode_gaps" {
         bindsym Escape mode "default"
 }
 mode "$mode_gaps_inner" {
-        bindsym plus  gaps inner current plus 5
-        bindsym minus gaps inner current minus 5
+        bindsym k  gaps inner current plus 5
+        bindsym j gaps inner current minus 5
         bindsym 0     gaps inner current set 0
 
         bindsym Shift+plus  gaps inner all plus 5
@@ -494,8 +492,8 @@ mode "$mode_gaps_inner" {
         bindsym Escape mode "default"
 }
 mode "$mode_gaps_outer" {
-        bindsym plus  gaps outer current plus 5
-        bindsym minus gaps outer current minus 5
+        bindsym k  gaps outer current plus 5
+        bindsym j gaps outer current minus 5
         bindsym 0     gaps outer current set 0
 
         bindsym Shift+plus  gaps outer all plus 5
