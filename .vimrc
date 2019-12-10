@@ -12,12 +12,12 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 "Plugin 'zah/nim.vim'
 Plugin 'scrooloose/syntastic'
-"Plugin 'w0ng/vim-hybrid'
+Plugin 'w0ng/vim-hybrid'
 Plugin 'rust-lang/rust.vim'
-"Plugin 'fatih/vim-go'
+Plugin 'fatih/vim-go'
 Plugin 'udalov/kotlin-vim'
 "Plugin 'Valloric/YouCompleteMe'
-Plugin 'phanviet/vim-monokai-pro'
+"Plugin 'phanviet/vim-monokai-pro'
 "Plugin 'wincent/command-t'
 Plugin 'cespare/vim-toml'
 Plugin 'sirver/UltiSnips'
@@ -36,10 +36,14 @@ Plugin 'ncm2/ncm2-ultisnips'
 
 "Plugin 'zxqfl/tabnine-vim'
 
+let g:go_def_mode='gopls'
+let g:go_info_mode='gopls'
+
 call vundle#end()            " required
 "set rtp+=~/code/tabnine-vim
 filetype plugin on
 autocmd BufNewFile,BufRead *.vpy setfiletype python
+autocmd BufNewFile,BufRead *.kt set ft=kotlin
 
 " for ncm2 completion
 autocmd BufEnter * call ncm2#enable_for_buffer()
@@ -53,14 +57,18 @@ set hidden
 
 let g:LanguageClient_serverCommands = {
     \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
+    \ 'haskell': ['hie-wrapper'],
+    \ 'python': ['/usr/bin/pyls'],
+    \ 'go': ['gopls'],
+    \ 'kotlin': ['/usr/bin/kotlin-language-server'],
+    \ 'c': ['/usr/bin/ccls'],
     \ }
-"    \ 'python': ['/usr/local/bin/pyls'],
 
 nnoremap <F5> :call LanguageClient_contextMenu()<CR>
 " Or map each action separately
 nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
 nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
-nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
+nnoremap <silent> <F6> :call LanguageClient#textDocument_rename()<CR>
 
 set number
 set showmatch
@@ -96,17 +104,31 @@ let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 let g:autofmt_autosave = 1
 set termguicolors
-colorscheme monokai_pro
+colorscheme hybrid
 syntax on
+
+let g:netrw_liststyle = 3
+let g:netrw_banner = 0
+let g:netrw_browse_split = 4
+let g:netrw_winsize = 25
+nmap <F2> :Vexplore<Return>
+
 
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
-let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_always_populate_loc_list = 0
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 let g:syntastic_check_on_write = 0
 let g:syntastic_mode_map = { 'mode': 'passive' }
-nmap <F2> :SyntasticCheck<CR>
+nmap <F3> :SyntasticCheck<CR>
+
+nnoremap <C-J> <C-W>j
+nnoremap <C-K> <C-W>k
+"nnoremap <C-L> <C-W>l
+nnoremap <C-H> <C-W>h
+set splitbelow
+set splitright
