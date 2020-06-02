@@ -8,10 +8,10 @@
 ;=====================================================
 
 [colors]
-background = #002d2a2e
-background-alt = #002d2a2e
-foreground = #555555
-foreground-alt = #555555
+background = #442d2a2e
+background-alt = #442d2a2e
+foreground = #ffffff
+foreground-alt = #ffffff
 primary = #fcfcfa
 secondary = #dcdcda
 green = #a9dc76
@@ -25,9 +25,9 @@ override-redirect = true
 monitor = ${env:MONITOR:HDMI-0}
 width = 100%
 height = 32
-;offset-x = 1%
-;offset-y = 1%
-radius = 4.0
+#offset-x = 1%
+#offset-y = 1%
+radius = 0.0
 fixed-center = true
 bottom = true
 
@@ -47,9 +47,9 @@ module-margin-left = 2
 module-margin-right = 2
 
 ; I’m a weeb who also listens to weeb music, so I needed a font with Kanji
-font-0 = "Noto Sans CJK JP:bold:size=11"
+font-0 = "Noto Sans CJK JP:size=11"
 font-1 = "Wuncon Siji:size=11"
-font-2 = "Noto Sans CJK JP:bold:size=11"
+font-2 = "Noto Sans CJK JP:size=11"
 
 modules-left = i3 mpd 
 modules-center = 
@@ -71,9 +71,7 @@ cursor-click = pointer
 monitor = ${env:MONITOR:DVI-D-0}
 width = 100%
 height = 22
-;offset-x = 1%
-;offset-y = 1%
-radius = 6.0
+radius = 0.0
 fixed-center = true
 bottom = true
 
@@ -83,7 +81,7 @@ foreground = ${colors.foreground}
 line-size = 3
 line-color = #f00
 
-border-size = 4
+border-size = 0
 border-color = #00000000
 
 padding-left = 0
@@ -114,9 +112,9 @@ cursor-click = pointer
 monitor = ${env:MONITOR:DP-0}
 width = 100%
 height = 28
-;offset-x = 1%
-;offset-y = 1%
-radius = 2.0
+offset-x = 0%
+offset-y = 0%
+radius = 0.0
 fixed-center = true
 bottom = false
 
@@ -126,7 +124,7 @@ foreground = ${colors.foreground}
 line-size = 3
 line-color = #f00
 
-border-size = 4
+border-size = 0
 border-color = #00000000
 
 padding-left = 0
@@ -135,9 +133,9 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = "Noto Sans CJK JP:size=11;1"
-font-1 = "Wuncon Siji:size=11;1"
-font-2 = "Noto Sans CJK JP:size=11;1"
+font-0 = "Noto Sans CJK JP:size=13;1"
+font-1 = "Wuncon Siji:size=13;1"
+font-2 = "Noto Sans CJK JP:size=13;1"
 
 modules-left = i3 mpd
 modules-center = 
@@ -263,7 +261,7 @@ icon-next = »
 
 label-offline = mpd is offline
 ; Only applies if <bar-progress> is used
-bar-progress-width = 10
+bar-progress-width = 15
 bar-progress-indicator = |
 bar-progress-fill = ─
 bar-progress-empty = ─
