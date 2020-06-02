@@ -17,13 +17,13 @@ Plugin 'rust-lang/rust.vim'
 Plugin 'fatih/vim-go'
 Plugin 'udalov/kotlin-vim'
 "Plugin 'Valloric/YouCompleteMe'
-"Plugin 'phanviet/vim-monokai-pro'
+Plugin 'phanviet/vim-monokai-pro'
 "Plugin 'wincent/command-t'
 Plugin 'cespare/vim-toml'
 Plugin 'sirver/UltiSnips'
 Plugin 'honza/vim-snippets'
 Plugin 'junegunn/fzf'
-Plugin 'ervandew/supertab'
+"Plugin 'ervandew/supertab'
 
 " rp call thing for auto completion with language servers
 Plugin 'roxma/nvim-yarp'
@@ -31,10 +31,10 @@ Plugin 'roxma/nvim-yarp'
 Plugin 'autozimu/LanguageClient-neovim'
 Plugin 'ncm2/ncm2'
 Plugin 'ncm2/ncm2-jedi'
-Plugin 'ncm2/ncm2-racer'
 Plugin 'ncm2/ncm2-ultisnips'
+Plugin 'ncm2/ncm2-racer'
+Plugin 'zxqfl/tabnine-vim'
 
-"Plugin 'zxqfl/tabnine-vim'
 
 let g:go_def_mode='gopls'
 let g:go_info_mode='gopls'
@@ -55,6 +55,8 @@ set completeopt=noinsert,menuone,noselect
 " Required for operations modifying multiple buffers like rename.
 set hidden
 
+    "\ 'rust': ['rustup', 'run', 'stable', 'rls'],
+    "\ 'rust': ['rust-analyzer'],
 let g:LanguageClient_serverCommands = {
     \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
     \ 'haskell': ['hie-wrapper'],
@@ -92,8 +94,6 @@ let &t_SI = "\<esc>[5 q"
 let &t_SR = "\<esc>[5 q"
 let &t_EI = "\<esc>[2 q"
 
-set autochdir
- 
 set undolevels=1000
 set backspace=indent,eol,start
 
@@ -104,14 +104,15 @@ let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 let g:autofmt_autosave = 1
 set termguicolors
-colorscheme hybrid
+colorscheme monokai_pro
 syntax on
 
 let g:netrw_liststyle = 3
 let g:netrw_banner = 0
 let g:netrw_browse_split = 4
-let g:netrw_winsize = 25
+let g:netrw_winsize = 15
 nmap <F2> :Vexplore<Return>
+nmap <C-A-L> :RustFmt<Return>
 
 
 set statusline+=%#warningmsg#
