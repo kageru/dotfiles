@@ -1,4 +1,5 @@
 #!/bin/sh
 
+setxkbmap de neo_qwertz
 setxkbmap -option compose:sclk
 xset r rate 250 40
