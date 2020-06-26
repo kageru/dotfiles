@@ -5,6 +5,8 @@ alias define='python /home/kageru/programming/mwebster/mwebster.py'
 alias nanaone-stream='mpv rtmp://live1.brb.re/live/nanaone'
 alias ls=exa
 alias du=dua
+alias sed=sd
+alias fzf=skim
 alias up='sudo pacman -Syu'
 alias in='sudo pacman -S'
 alias feg=feh # don’t ask
@@ -66,3 +68,6 @@ alias sprunge="curl -F 'sprunge=<-' http://sprunge.us"
 # Aliases for SSH connections (raspi, remote server, etc.)
 [ -f ~/.config/zsh/ssh.sh ] && source ~/.config/zsh/ssh.sh
 
+paste() {
+    curl -F"file=@$1" | xsel -b
+}
