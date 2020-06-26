@@ -94,7 +94,7 @@ bindsym $mod+F2 exec qutebrowser
 #bindsym $mod+F3 exec st -e zsh -ci ranger
 #bindsym $mod+F5 exec st -e zsh -ci ncmpcpp
 bindsym $mod+F3 exec alacritty -e ranger
-bindsym $mod+F5 exec alacritty -e ncmpcpp
+bindsym $mod+F5 exec st -e ncmpcpp
 bindsym $mod+t exec --no-startup-id pkill picom
 bindsym $mod+Ctrl+t exec --no-startup-id picom -b
 bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
