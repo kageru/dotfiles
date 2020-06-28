@@ -1,45 +1,42 @@
 set nocompatible              " be iMproved, required
 filetype on                  " required
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install bundles
-"let path = '~/some/path/here'
-"call vundle#rc(path)
+"set rtp+=~/.vim/bundle/Vundle.vim
+"call vundle#begin()
+call plug#begin('~/.vim/plugged')
 
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-"Plugin 'zah/nim.vim'
-Plugin 'scrooloose/syntastic'
-Plugin 'w0ng/vim-hybrid'
-Plugin 'rust-lang/rust.vim'
-Plugin 'fatih/vim-go'
-Plugin 'udalov/kotlin-vim'
-"Plugin 'Valloric/YouCompleteMe'
-Plugin 'phanviet/vim-monokai-pro'
-"Plugin 'wincent/command-t'
-Plugin 'cespare/vim-toml'
-Plugin 'sirver/UltiSnips'
-Plugin 'honza/vim-snippets'
-Plugin 'junegunn/fzf'
-"Plugin 'ervandew/supertab'
+Plug 'scrooloose/syntastic'
+Plug 'rust-lang/rust.vim'
+Plug 'fatih/vim-go'
+Plug 'udalov/kotlin-vim'
+"Plug 'Valloric/YouCompleteMe'
+Plug 'phanviet/vim-monokai-pro'
+Plug 'cespare/vim-toml'
+Plug 'sirver/UltiSnips'
+Plug 'honza/vim-snippets'
+Plug 'lotabout/skim', { 'dir': '~/.skim', 'do': './install' }
+Plug 'lotabout/skim.vim'
+Plug 'ervandew/supertab'
 
 " rp call thing for auto completion with language servers
-Plugin 'roxma/nvim-yarp'
+Plug 'roxma/nvim-yarp'
 " language client stuff
-Plugin 'autozimu/LanguageClient-neovim'
-Plugin 'ncm2/ncm2'
-Plugin 'ncm2/ncm2-jedi'
-Plugin 'ncm2/ncm2-ultisnips'
-Plugin 'ncm2/ncm2-racer'
-Plugin 'zxqfl/tabnine-vim'
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
+Plug 'ncm2/ncm2'
+Plug 'ncm2/ncm2-jedi'
+Plug 'ncm2/ncm2-ultisnips'
+Plug 'ncm2/ncm2-racer'
+"Plug 'zxqfl/tabnine-vim'
 
 
 let g:go_def_mode='gopls'
 let g:go_info_mode='gopls'
 
-call vundle#end()            " required
+"call vundle#end()            " required
+call plug#end()
 "set rtp+=~/code/tabnine-vim
 filetype plugin on
 autocmd BufNewFile,BufRead *.vpy setfiletype python
@@ -48,22 +45,23 @@ autocmd BufNewFile,BufRead *.kt set ft=kotlin
 " for ncm2 completion
 autocmd BufEnter * call ncm2#enable_for_buffer()
 set completeopt=noinsert,menuone,noselect
-"inoremap <expr> <Tab> (pumvisible() ? "\<CR>" : "\<Tab>")
-"inoremap <expr> <CR> (pumvisible() ? "\<c-y>\<cr>" : "\<CR>")
-"inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+" When the <Enter> key is pressed while the popup menu is visible, it only
+" hides the menu. Use this mapping to close the menu and also start a new line.
+inoremap <expr> <CR> (pumvisible() ? "\<c-y>\<cr>" : "\<CR>")
 
 " Required for operations modifying multiple buffers like rename.
 set hidden
 
     "\ 'rust': ['rustup', 'run', 'stable', 'rls'],
-    "\ 'rust': ['rust-analyzer'],
+    "\ 'rust': ['rustup', 'run', 'nightly', 'rls'],
 let g:LanguageClient_serverCommands = {
-    \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
+    \ 'rust': ['rust-analyzer'],
     \ 'haskell': ['hie-wrapper'],
     \ 'python': ['/usr/bin/pyls'],
     \ 'go': ['gopls'],
     \ 'kotlin': ['/usr/bin/kotlin-language-server'],
     \ 'c': ['/usr/bin/ccls'],
+    \ 'java': ['jdtls'],
     \ }
 
 nnoremap <F5> :call LanguageClient_contextMenu()<CR>
@@ -97,8 +95,6 @@ let &t_EI = "\<esc>[2 q"
 set undolevels=1000
 set backspace=indent,eol,start
 
-let g:hybrid_custom_term_colors = 1
-let g:hybrid_reduced_contrast = 1
 set background=dark
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
@@ -133,3 +129,9 @@ nnoremap <C-K> <C-W>k
 nnoremap <C-H> <C-W>h
 set splitbelow
 set splitright
+
+nmap <S-Tab> :Snippets<CR>
+nmap <C-G> :Files<CR>
+imap <C-G> <Esc>:Files<CR>
+nmap <S-L> :BLines<CR>
+nmap <C-F> :Lines<CR>
