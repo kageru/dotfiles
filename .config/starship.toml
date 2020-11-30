@@ -1,0 +1,22 @@
+add_newline = false
+scan_timeout = 10
+
+[line_break]
+disabled = true
+
+[character]
+success_symbol = "[](bold green)"
+error_symbol = "[](bold red)"
+
+[directory]
+style = "cyan"
+
+[java]
+style = "red"
+
+[git_branch]
+format = "[$symbol$branch]($style) "
+symbol = ""
+
+[git_status]
+disabled = true
