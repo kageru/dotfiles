@@ -6,12 +6,18 @@ cp ~/webpw.kdbx ~/Sync/webpw.kdbx
 fcitx
 sshfs -i ~/.ssh/lain lain:/home/kgt/download /mnt/lain -C &
 syncthing &
-# xsetwacom --set 12 Area -14900 0 44400 16000
-xrandr --fb 6400x2520 --dpi 109x109 \
-    --output DP-0 --mode 2560x1440 --rate 144 --pos 0x0 \
-    --output HDMI-1 --mode 3840x2160 --pos 2560x0 \
-    --output DVI-D-0 --mode 1920x1080 --rate 144 --pos 640x1440 
+#xrandr --fb 6400x2520 --dpi 109x109 \
+    #--output DP-0 --mode 2560x1440 --rate 144 --pos 0x0 \
+    #--output HDMI-1 --mode 3840x2160 --right-of DP-0 \
+    #--output DVI-D-0 --mode 1920x1080 --rate 144 --below DP-0
+xrandr --fb 5120x1440 --dpi 96 \
+    --output HDMI-1 --mode 2560x1440 -r 120 --pos 0x0 \
+    --output DP-2 --right-of HDMI-1 -r 240 --mode 2560x1440
 #xrandr --fb 6400x2520 --output DP-0 --mode 2560x1440 --rate 144 --pos 0x0 --output DVI-D-0 --mode 1920x1080 --rate 144 --below DP-0 --output HDMI-0 --right-of DP-0 --dpi 109x109
+xsetwacom --set $(xsetwacom --list devices | grep STYLUS | awk '{print $7}') MapToOutput HEAD-1
+xsetwacom --set $(xsetwacom --list devices | grep STYLUS | awk '{print $7}') Area 0 0 11200 6300
+xsetwacom --set $(xsetwacom --list devices | grep STYLUS | awk '{print $7}') Suppress 0
+xsetwacom --set $(xsetwacom --list devices | grep STYLUS | awk '{print $7}') RawSample 1
 ~/bin/fixkeyboard
 ~/.fehbg
 xrdb ~/.Xresources

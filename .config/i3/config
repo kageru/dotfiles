@@ -73,10 +73,10 @@ floating_modifier $mod
 bindsym $mod+Return exec alacritty
 
 # kill focused window
-bindsym $mod+Shift+q kill
+bindsym $mod+q kill
 
 # start program launcher
-bindsym $mod+d exec --no-startup-id rofi -show run
+bindsym $mod+d exec --no-startup-id dmenu_run
 
 ################################################################################################
 ## sound-section - DO NOT EDIT if you wish to automatically upgrade Alsa -> Pulseaudio later! ##
@@ -137,7 +137,7 @@ bindsym $mod+Shift+b move container to workspace back_and_forth; workspace back_
 # split orientation
 bindsym $mod+g split h
 bindsym $mod+v split v
-bindsym $mod+q split toggle
+# bindsym $mod+q split toggle
 
 # toggle fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -196,15 +196,10 @@ set $ws19 十九
 
 # default screens
 #workspace $ws1 output DP-0
-workspace $ws1 output DVI-D-0
-workspace $ws11 output DVI-D-0
-workspace $ws2 output DP-0
-workspace $ws12 output DP-0
-workspace $ws3 output DVI-D-0
-workspace $ws13 output DVI-D-0
-workspace $ws4 output DVI-D-0
-workspace $ws18 output HDMI-0
-workspace $ws19 output HDMI-0
+#workspace $ws1 output HDMI-1
+workspace $ws2 output DP-2
+workspace $ws3 output HDMI-1
+workspace $ws4 output DP-2
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -344,7 +339,7 @@ mode "resize" {
 
 
 # Lock screen
-bindsym $mod+9 exec --no-startup-id i3lock -i ~/Pictures/bg.png -ut
+bindsym $mod+9 exec --no-startup-id i3lock -i ~/Pictures/bg.png -t
 
 # Autostart applications
 exec ~/bin/autostart

@@ -5,8 +5,7 @@ alias define='python /home/kageru/programming/mwebster/mwebster.py'
 alias nanaone-stream='mpv rtmp://live1.brb.re/live/nanaone'
 alias ls=exa
 alias du=dua
-alias sed=sd
-alias fzf=skim
+#alias fzf=sk
 alias up='sudo pacman -Syu'
 alias in='sudo pacman -S'
 alias feg=feh # don’t ask
@@ -28,7 +27,6 @@ alias grep="grep --colour"
 alias clip='xsel -b'
 alias bitrateviewer='wine "/home/kageru/.wine/drive_c/Program Files (x86)/BitrateViewer/BitrateViewer.exe"'
 alias colorpicker="maim -sot 0 | convert - -resize 1x1\! -format '%[pixel:p{0,0}]' info:-"
-alias fixgit='eval "$(ssh-agent -s)"; ssh-add ~/.ssh/git'
 alias sv='systemctl'
 alias xo='xdg-open'
 alias resetgamma='xrandr --output DVI-D-0 --gamma 1:1:1 --output HDMI-1 --gamma 1:1:1 --output HDMI-0 --gamma 1:1:1 --output DP-0 --gamma 1:1:1'
@@ -44,6 +42,8 @@ alias gco='git checkout'
 alias gs='git switch'
 alias gsc='git switch -c'
 alias gr='git restore'
+alias gcp='git cherry-pick'
+alias gl='git log'
 alias blps='~/.steam/steam/steamapps/common/BorderlandsPreSequel/BorderlandsPreSequel'
 alias dir2flac='for f in *.wav; do
     ffmpeg -i "$f" -compression_level 12 "`basename "$f" .wav`.flac"
@@ -65,9 +65,11 @@ alias :wq='exit'
 
 alias sprunge="curl -F 'sprunge=<-' http://sprunge.us"
 
-# Aliases for SSH connections (raspi, remote server, etc.)
+# Aliases for SSH connections (mount sshfs, mac IDs for WoL, etc)
 [ -f ~/.config/zsh/ssh.sh ] && source ~/.config/zsh/ssh.sh
 
 paste() {
-    curl -F"file=@$1" | xsel -b
+    curl -F"file=@$1" https://p.kageru.moe | xsel -b
 }
+
+alias dark='xset dpms force off'
