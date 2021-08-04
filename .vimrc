@@ -21,6 +21,7 @@ Plug 'powerline/powerline'
 Plug 'elmcast/elm-vim'
 Plug 'tpope/vim-fugitive'
 Plug 'mileszs/ack.vim'
+"Plug 'lukas-reineke/indent-blankline.nvim'
 
 " rp call thing for auto completion with language servers
 "Plug 'roxma/nvim-yarp'
@@ -63,13 +64,13 @@ set hidden
 
     "\ 'rust': ['rustup', 'run', 'stable', 'rls'],
     "\ 'rust': ['rustup', 'run', 'nightly', 'rls'],
+    "\ 'c': ['/usr/bin/ccls'],
 let g:LanguageClient_serverCommands = {
     \ 'rust': ['rust-analyzer'],
     \ 'haskell': ['hie-wrapper'],
     \ 'python': ['/usr/bin/pyls'],
     \ 'go': ['gopls'],
     \ 'kotlin': ['/usr/bin/kotlin-language-server'],
-    \ 'c': ['/usr/bin/ccls'],
     \ 'elm': ['/home/kageru/build/node_modules/.bin/elm-language-server'],
     \ }
 
@@ -78,6 +79,8 @@ nnoremap <F5> :call LanguageClient_contextMenu()<CR>
 nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
 "nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
 nnoremap <silent> <F6> :call LanguageClient#textDocument_rename()<CR>
+" rename without language server
+nnoremap gr gd[{V%::s/<C-R>///gc<left><left><left>
 
 set number
 set showmatch
