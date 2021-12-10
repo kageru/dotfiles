@@ -1,47 +1,27 @@
 set nocompatible              " be iMproved, required
 filetype on                  " required
 
-"set rtp+=~/.vim/bundle/Vundle.vim
-"call vundle#begin()
 call plug#begin('~/.vim/plugged')
 
 Plug 'scrooloose/syntastic'
 Plug 'rust-lang/rust.vim'
 Plug 'fatih/vim-go'
 Plug 'kageru/kotlin-vim'
-"Plug 'Valloric/YouCompleteMe'
 Plug 'phanviet/vim-monokai-pro'
 Plug 'cespare/vim-toml'
 Plug 'sirver/UltiSnips'
 Plug 'honza/vim-snippets'
 Plug 'lotabout/skim', { 'dir': '~/.skim', 'do': './install' }
 Plug 'lotabout/skim.vim'
-"Plug 'ervandew/supertab'
-Plug 'powerline/powerline'
+" Plug 'powerline/powerline'
+Plug 'vim-airline/vim-airline'
 Plug 'elmcast/elm-vim'
 Plug 'tpope/vim-fugitive'
 Plug 'mileszs/ack.vim'
-"Plug 'lukas-reineke/indent-blankline.nvim'
 
-" rp call thing for auto completion with language servers
-"Plug 'roxma/nvim-yarp'
-" language client stuff
-"Plug 'autozimu/LanguageClient-neovim', {
-    "\ 'branch': 'next',
-    "\ 'do': 'bash install.sh',
-    "\ }
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-"Plug 'ncm2/ncm2'
-"Plug 'ncm2/ncm2-jedi'
-"Plug 'ncm2/ncm2-ultisnips'
-"Plug 'ncm2/ncm2-racer'
 "Plug 'zxqfl/tabnine-vim'
 
-
-let g:go_def_mode='gopls'
-let g:go_info_mode='gopls'
-
-"call vundle#end()            " required
 call plug#end()
 "set rtp+=~/code/tabnine-vim
 filetype plugin on
@@ -69,9 +49,7 @@ let g:LanguageClient_serverCommands = {
     \ 'rust': ['rust-analyzer'],
     \ 'haskell': ['hie-wrapper'],
     \ 'python': ['/usr/bin/pyls'],
-    \ 'go': ['gopls'],
     \ 'kotlin': ['/usr/bin/kotlin-language-server'],
-    \ 'elm': ['/home/kageru/build/node_modules/.bin/elm-language-server'],
     \ }
 
 nnoremap <F5> :call LanguageClient_contextMenu()<CR>
@@ -161,7 +139,7 @@ nmap <C-F> :Lines<CR>
 nmap <C-B> :Buffers<CR>
 imap <C-B> <Esc>:Buffers<CR>
 
-let g:powerline_pycmd="py3"
+" let g:powerline_pycmd="py3"
 
 let g:ackprg = 'rg --vimgrep --smart-case'
 let g:ack_autoclose = 1
