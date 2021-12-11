@@ -181,8 +181,9 @@ interval = 25
 
 mount-0 = /
 mount-1 = /home
+mount-2 = /home/kageru/.local/share/Steam
 
-label-mounted = %free%
+label-mounted = %free% |
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.foreground-alt}
 

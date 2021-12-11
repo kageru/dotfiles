@@ -10,9 +10,9 @@ bindsym $mod+Shift+Return exec cool-retro-term;
 #for_window [class="cool-retro-term"] fullscreen enable
 
 #bindsym $mod+Ctrl+o exec keepass --auto-type
-bindsym Ctrl+Shift+4 exec /home/kageru/bin/pyshare
-bindsym Ctrl+Shift+8 exec /home/kageru/bin/pyshare -e 1
-bindsym $mod+Shift+u exec /home/kageru/bin/pyshare -m text
+bindsym Ctrl+Shift+4 exec /home/kageru/bin/ppsh
+# bindsym Ctrl+Shift+8 exec /home/kageru/bin/pyshare -e 1
+# bindsym $mod+Shift+u exec /home/kageru/bin/pyshare -m text
 bindsym $mod+x exec "rofi -show window -modi window,run,drun"
 # -font Hack\ 20 -lines 8 -location 2 -width 100 -no-fixed-num-lines -fuzzy -levenshtein-sort
 # -color-normal "argb:ff222222, argb:cccccc, argb:333333, argb:663333, argb:ffffff" -color-window "#222222, #cccccc, #333333, #663333, #ffffff" -color-urgent "#222222, #cccccc, #333333, #663333, #ffffff" -color-active "#222222, #cccccc, #333333, #663333, #ffffff"
@@ -59,7 +59,6 @@ hide_edge_borders none
 # change borders
 bindsym $mod+u border none
 bindsym $mod+y border pixel 3
-bindsym $mod+n border normal
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.

@@ -12,7 +12,10 @@ alias feg=feh # don’t ask
 alias tree='exa --tree'
 alias animesync='python /home/kageru/programming/animesync-personal/animesync.py'
 #alias autoremove='sudo pacman -R $(pacaur -Qdtq)'
-alias nt='alacritty --working-directory $PWD &'
+function nt() {
+  alacritty --working-directory $PWD &
+  disown
+}
 #alias nt='urxvtc -cd $PWD &'
 alias ej='udisksctl power-off -b'
 alias monitor_on='pactl load-module module-loopback'
@@ -70,7 +73,7 @@ alias sprunge="curl -F 'sprunge=<-' http://sprunge.us"
 [ -f ~/.config/zsh/ssh.sh ] && source ~/.config/zsh/ssh.sh
 
 paste() {
-    curl -F"file=@$1" https://p.kageru.moe | xsel -b
+    curl -F"file=@$1" https://p.kageru.moe | wl-copy
 }
 
 alias dark='xset dpms force off'

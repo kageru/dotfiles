@@ -3,10 +3,10 @@
 ~/bin/fixkeyboard
 xrandr --fb 5120x1440 --dpi 96 \
     --output DisplayPort-0 --pos 0x0 -r 240 --mode 2560x1440 \
-    --output HDMI-A-0 --mode 2560x1440 -r 120 --right-of DisplayPort-0
+    --output HDMI-A-0 --mode 2560x1440 -r 120 --left-of DisplayPort-0
 ~/.fehbg
 rm -rf /home/kageru/temp/*
-cp ~/webpw.kdbx /mnt/gaia/
+cp ~/webpw.kdbx /mnt/calliope/
 cp ~/webpw.kdbx ~/Sync/webpw.kdbx
 fcitx
 sshfs -i ~/.ssh/lain lain:/home/kgt/download /mnt/lain -C &
@@ -14,4 +14,3 @@ sshfs -i ~/.ssh/lain lain:/home/kgt/download /mnt/lain -C &
 xrdb ~/.Xresources
 dunst &
 redshift -t 6500:3200 -l 53.55:9.64 &
-pactl unload-module module-role-cork

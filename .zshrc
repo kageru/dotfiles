@@ -1,6 +1,5 @@
 export GOPATH=~/go
-export PATH=$PATH:~/bin:~/go/bin
-#:/opt/devkitpro/devkitARM/bin:/opt/devkitpro/tools/bin
+export PATH=$PATH:~/bin:~/go/binA:/opt/devkitpro/devkitARM/bin:/opt/devkitpro/tools/bin:~/.local/bin
 export RUSTFLAGS="-C target-cpu=native"
 export DEVKITPRO=/opt/devkitpro
 export DEVKITARM=/opt/devkitpro/devkitARM
@@ -54,7 +53,6 @@ export WINEDEBUG=-all
 setopt noalwayslastprompt
 setopt list_types
 setopt complete_in_word
-setopt autocd
 
 if [ ! -S ~/.ssh/ssh_auth_sock ]; then
   eval `ssh-agent`
