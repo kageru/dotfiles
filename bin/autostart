@@ -13,4 +13,4 @@ sshfs -i ~/.ssh/lain lain:/home/kgt/download /mnt/lain -C &
 #syncthing &
 xrdb ~/.Xresources
 dunst &
-redshift -t 6500:3200 -l 53.55:9.64 &
+redshift -t 6500:3200 -l 54:10 &
