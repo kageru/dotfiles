@@ -1,0 +1,10 @@
+{
+  "rust-analyzer.serverPath": "/usr/bin/rust-analyzer",
+  "rust-analyzer.inlayHints.chainingHints": true,
+  "languageserver": {
+    "kotlin": {
+      "command": "/usr/bin/kotlin-language-server",
+      "filetypes": ["kotlin", "kt"]
+    }
+  }
+}
