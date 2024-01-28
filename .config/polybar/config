@@ -73,7 +73,7 @@ width = 100%
 height = 28
 radius = 0.0
 fixed-center = true
-bottom = false
+bottom = true
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -116,7 +116,7 @@ offset-x = 0%
 offset-y = 0%
 radius = 0.0
 fixed-center = true
-bottom = false
+bottom = true
 
 background = ${colors.background}
 foreground = ${colors.foreground}

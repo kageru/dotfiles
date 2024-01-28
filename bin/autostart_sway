@@ -3,14 +3,8 @@
 rm -rf /home/kageru/temp/*
 cp ~/webpw.kdbx /mnt/calliope/
 cp ~/webpw.kdbx ~/Sync/webpw.kdbx
-fcitx
+# fcitx
 sshfs -i ~/.ssh/lain lain:/home/kgt/download /mnt/lain -C &
-#syncthing &
-#xrandr --fb 5120x1440 --dpi 96 \
-    #--output HDMI-A-0 --mode 2560x1440 -r 120 --pos 0x0 \
-    #--output DisplayPort-0 --right-of HDMI-A-0 -r 240 --mode 2560x1440
-#~/bin/fixkeyboard
-#xrdb ~/.Xresources
 gammastep -t 6500:3200 -l 54:10 &
-waybar&
+waybar &
 mako &

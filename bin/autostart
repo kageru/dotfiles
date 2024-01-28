@@ -8,7 +8,7 @@ xrandr --fb 5120x1440 --dpi 96 \
 rm -rf /home/kageru/temp/*
 cp ~/webpw.kdbx /mnt/calliope/
 cp ~/webpw.kdbx ~/Sync/webpw.kdbx
-fcitx
+# fcitx
 sshfs -i ~/.ssh/lain lain:/home/kgt/download /mnt/lain -C &
 #syncthing &
 xrdb ~/.Xresources
