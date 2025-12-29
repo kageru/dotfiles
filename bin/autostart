@@ -3,7 +3,7 @@
 ~/bin/fixkeyboard
 xrandr --fb 5120x1440 --dpi 96 \
     --output DisplayPort-0 --pos 0x0 -r 240 --mode 2560x1440 \
-    --output HDMI-A-0 --mode 2560x1440 -r 120 --left-of DisplayPort-0
+    --output HDMI-A-0 --mode 2560x1440 -r 120 --right-of DisplayPort-0
 ~/.fehbg
 rm -rf /home/kageru/temp/*
 cp ~/webpw.kdbx /mnt/calliope/
