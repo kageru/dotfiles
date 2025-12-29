@@ -32,7 +32,7 @@ bindsym $mod+F7 exec mpc next
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /home/kageru/Pictures/bg_train.jpg fill
+output * bg /home/kageru/Pictures/bg_town.jpg fill
 #
 # Example configuration:
 #
@@ -44,6 +44,8 @@ output HDMI-A-1 mode 2560x1440@144Hz
 output HDMI-A-1 position 2560 0
 output DP-1 mode 2560x1440@240Hz
 output DP-1 position 0 0
+# causes flickering?
+# output DP-1 adaptive_sync on
 
 default_border pixel 2
 default_floating_border pixel 3
@@ -128,11 +130,11 @@ bindsym Ctrl+Shift+4 exec /home/kageru/bin/ppsh
 bindsym $mod+x exec swayr switch-window
 bindsym $mod+Ctrl+s exec systemctl suspend
 
-bindsym $mod+Shift+d exec discord
+bindsym $mod+Shift+d exec vesktop
 bindsym $mod+Shift+s sticky toggle
 bindsym $mod+F2 exec qutebrowser
 bindsym $mod+F3 exec alacritty -e ranger
-bindsym $mod+F5 exec alacritty -e ncmpcpp
+bindsym $mod+F5 exec alacritty -o font.size=16 -e ncmpcpp
 bindsym $mod+m exec mpv --force-window=immediate --gpu-context=wayland --player-operation-mode=pseudo-gui --profile=db -- "`wl-paste`"
 
     # Drag floating windows by holding down $mod and left mouse button.
