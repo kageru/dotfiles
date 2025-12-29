@@ -2,6 +2,8 @@ vim.opt.completeopt = {'menuone', 'noselect', 'noinsert'}
 vim.opt.shortmess = vim.opt.shortmess + { c = true}
 vim.api.nvim_set_option('updatetime', 300)
 
+require'nvim-treesitter'.install { 'rust', 'haskell' }
+
 -- Completion Plugin Setup
 local cmp = require'cmp'
 cmp.setup({

@@ -68,7 +68,6 @@ nnoremap <Leader>/ :Ack!<Space>
 set runtimepath^=~/.vim runtimepath+=~/.vim/after
 let &packpath = &runtimepath
 lua require('plugins')
-lua require('lspstuff')
 lua require('completion')
 lua require('mason').setup()
 

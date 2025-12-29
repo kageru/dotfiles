@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =7
+let g:netrw_dirhist_7='/home/kageru/code/mpdc/src'
+let g:netrw_dirhist_6='/home/kageru/code/mpdc'
+let g:netrw_dirhist_5='/home/kageru/.config/alacritty'
+let g:netrw_dirhist_4='/home/kageru/code/adaptivegrain/benches'
+let g:netrw_dirhist_3='/home/kageru/temp/vs-average/src'
+let g:netrw_dirhist_2='/home/kageru/code/tracc/src'
+let g:netrw_dirhist_1='/home/kageru/code/tracc'
+let g:netrw_dirhist_0='/home/kageru/code/tracc/src'
+let g:netrw_dirhist_9='/home/kageru/code/hardsubmask/src'
+let g:netrw_dirhist_8='/home/kageru/code/tracc/src'

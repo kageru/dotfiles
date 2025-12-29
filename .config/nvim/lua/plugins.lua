@@ -4,6 +4,7 @@ return require('packer').startup(function()
     -- Visual
     use 'phanviet/vim-monokai-pro'
     use 'vim-airline/vim-airline'
+    use 'nvim-treesitter/nvim-treesitter'
 
     -- Management
     use 'williamboman/mason.nvim'    
@@ -12,7 +13,7 @@ return require('packer').startup(function()
 
     -- Completion
     use 'hrsh7th/nvim-cmp'
-    use 'sirver/UltiSnips'
+    -- use 'sirver/UltiSnips'
     use 'honza/vim-snippets'
     use 'hrsh7th/cmp-nvim-lsp'
     use 'hrsh7th/cmp-nvim-lua'
@@ -20,10 +21,12 @@ return require('packer').startup(function()
     use 'hrsh7th/cmp-path'
     use 'hrsh7th/cmp-buffer'
     use 'hrsh7th/vim-vsnip'
+    use "rafamadriz/friendly-snippets"
 
     -- Languages
-    use 'simrat39/rust-tools.nvim'
+    use 'mrcjkb/rustaceanvim'
     use 'rust-lang/rust.vim'
+    use 'mrcjkb/haskell-tools.nvim'
 
     -- Misc
     use 'mileszs/ack.vim'
