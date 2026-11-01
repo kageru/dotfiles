@@ -68,6 +68,8 @@ exec swayidle -w timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "outp
 # resumed. It will also lock your screen before your computer goes to sleep.
 
 ### Input configuration
+# Use the same Xcursor theme as GTK applications.
+seat * xcursor_theme Oxygen_Zion 24
 #
 # Example configuration:
 #
@@ -130,6 +132,20 @@ bindsym Ctrl+Shift+4 exec /home/kageru/bin/ppsh
 bindsym $mod+x exec swayr switch-window
 bindsym $mod+Ctrl+s exec systemctl suspend
 
+# System actions (Escape or Enter cancels)
+set $mode_system (l)ock, (e)xit, (s)uspend, (h)ibernate, (r)eboot, (Shift+s)hutdown
+bindsym $mod+0 mode "$mode_system"
+mode "$mode_system" {
+    bindsym l exec swaylock -e -f -c 000000, mode "default"
+    bindsym e exit
+    bindsym s exec systemctl suspend -i, mode "default"
+    bindsym h exec systemctl hibernate -i, mode "default"
+    bindsym r exec systemctl reboot, mode "default"
+    bindsym Shift+s exec systemctl poweroff, mode "default"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
 bindsym $mod+Shift+d exec vesktop
 bindsym $mod+Shift+s sticky toggle
 bindsym $mod+F2 exec qutebrowser
@@ -186,7 +202,6 @@ bindsym $mod+m exec mpv --force-window=immediate --gpu-context=wayland --player-
     bindsym $mod+7 workspace number 7
     bindsym $mod+8 workspace number 8
     bindsym $mod+9 workspace number 9
-    bindsym $mod+0 workspace number 10
     # Move focused container to workspace
     bindsym $mod+Shift+1 move container to workspace number 1; workspace number 1
     bindsym $mod+Shift+2 move container to workspace number 2; workspace number 2
