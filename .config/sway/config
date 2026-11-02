@@ -4,8 +4,16 @@
 #
 # Read `man 5 sway` for a complete reference.
 
-gaps inner 10
+gaps inner 8
 gaps outer -10
+
+# Warm chestnut and amber accents to complement the town wallpaper.
+client.focused          #e2aa5e #e2aa5e #181512 #fff0d4 #e2aa5e
+client.focused_inactive #79563b #79563b #fff0d4 #e6d2ad #79563b
+client.unfocused        #392b22 #392b22 #e6d2ad #bda889 #392b22
+client.urgent           #c56843 #c56843 #fff0d4 #fff0d4 #c56843
+client.placeholder      #30231d #30231d #fff0d4 #30231d #30231d
+client.background       #181512
 ### Variables
 #
 # Logo key. Use Mod1 for Alt.

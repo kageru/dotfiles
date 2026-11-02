@@ -1,0 +1,79 @@
+* {
+    border: none;
+    border-radius: 0;
+    font-family: Roboto, Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    min-height: 0;
+}
+
+window#waybar {
+    background-color: rgba(24, 21, 18, 0.97);
+    border-top: 2px solid #79563b;
+    color: #fff0d4;
+    transition-property: background-color;
+    transition-duration: .25s;
+}
+
+window#waybar.hidden { opacity: 0.2; }
+
+#workspaces button {
+    padding: 0 7px;
+    background-color: transparent;
+    color: #dccbad;
+    box-shadow: inset 0 -2px transparent;
+}
+
+#workspaces button:hover {
+    background: #392b22;
+    box-shadow: inset 0 -2px #e2aa5e;
+}
+
+#workspaces button.focused {
+    background-color: #392b22;
+    color: #ffd27a;
+    box-shadow: inset 0 -2px #e2aa5e;
+}
+
+#workspaces button.urgent { background-color: #713b2c; color: #fff4dc }
+#mode { background-color: #5d4433; color: #fff4dc }
+
+#clock, #battery, #cpu, #memory, #temperature, #backlight, #network,
+#pulseaudio, #custom-media, #tray, #mode, #idle_inhibitor, #mpd {
+    padding: 0 9px;
+    margin: 0 3px;
+    color: #fff0d4;
+    background-color: #2a201b;
+}
+
+#window, #workspaces { margin: 0 4px; }
+.modules-left > widget:first-child > #workspaces { margin-left: 0; }
+.modules-right > widget:last-child > #workspaces { margin-right: 0; }
+
+#clock { color: #ffd27a }
+#battery.charging { color: #e0b86f }
+#battery.critical:not(.charging) {
+    background-color: #713b2c;
+    color: #fff4dc;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes blink {
+    to { background-color: #d36e4c; color: #181512; }
+}
+
+label:focus { background-color: #392b22; }
+#network.disconnected, #temperature.critical { color: #f2916a }
+#pulseaudio.muted, #idle_inhibitor { color: #b59a7b }
+#idle_inhibitor.activated { color: #ffd27a }
+#custom-media { min-width: 100px; }
+
+/* The Hyprland Waybar module uses .active where the Sway module uses .focused. */
+#workspaces button.active {
+    background-color: #392b22;
+    color: #ffd27a;
+    box-shadow: inset 0 -2px #e2aa5e;
+}

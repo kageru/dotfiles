@@ -1,4 +1,6 @@
-background-color=#000000bb
+background-color=#181512ee
+text-color=#fff0d4
 height=200
 default-timeout= 3000
-border-size=1
+border-size=2
+border-color=#e2aa5e
