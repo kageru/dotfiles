@@ -2,6 +2,13 @@
 
 Managed home files live under `home/` and are deployed with GNU Stow.
 
+This checkout runs `stow --restow` after each commit. To enable that hook in a
+new checkout, run:
+
+```sh
+git config core.hooksPath .githooks
+```
+
 From this repository, run:
 
 ```sh
