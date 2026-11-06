@@ -62,6 +62,26 @@ hl.config({
 
 hl.config({ dwindle = { preserve_split = true } })
 
+-- Keep group titles readable over any wallpaper, with an opaque warm tab bar.
+hl.config({
+    group = {
+        groupbar = {
+            font_size = 14,
+            height = 24,
+            text_padding = 8,
+            gradients = true,
+            text_color = "rgba(f5e6d3ff)",
+            text_color_inactive = "rgba(d5c2adff)",
+            col = {
+                active = "rgba(30251f80)",
+                inactive = "rgba(493a2f80)",
+                locked_active = "rgba(30251f80)",
+                locked_inactive = "rgba(493a2f80)",
+            },
+        },
+    },
+})
+
 -- Retain the dark chestnut / amber palette and add a short focus-opacity fade.
 hl.curve("warmEase", { type = "bezier", points = { { 0.23, 1 }, { 0.32, 1 } } })
 hl.animation({ leaf = "global", enabled = true, speed = 4, bezier = "warmEase" })
@@ -143,7 +163,9 @@ local directions = {
 }
 for key, direction in pairs(directions) do
     hl.bind(mainMod .. " + " .. key, hl.dsp.focus({ direction = direction }))
-    hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ direction = direction }))
+    -- Like Sway's move-into-container behavior, directional moves also
+    -- insert/remove windows from adjacent Hyprland groups.
+    hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ direction = direction, group_aware = true }))
 end
 
 for i = 1, 10 do
@@ -156,14 +178,23 @@ hl.bind(mainMod .. " + B", hl.dsp.focus({ workspace = "previous" }))
 hl.bind(mainMod .. " + SHIFT + B", hl.dsp.window.move({ workspace = "previous", follow = true }))
 hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({ action = "toggle" }))
 hl.bind(mainMod .. " + SHIFT + SPACE", hl.dsp.window.float({ action = "toggle" }))
-hl.bind(mainMod .. " + SPACE", hl.dsp.focus({ last = true }))
+hl.bind(mainMod .. " + SPACE", function()
+    local window = hl.get_active_window()
+    if not window then return end
+    hl.dispatch(hl.dsp.window.cycle_next({
+        floating = not window.floating,
+        tiled = window.floating,
+    }))
+end, { description = "Switch focus between tiled and floating windows" })
 hl.bind(mainMod .. " + A", hl.dsp.focus({ last = true }))
 hl.bind(mainMod .. " + G", hl.dsp.layout("preselect l"))
 hl.bind(mainMod .. " + V", hl.dsp.layout("preselect d"))
 hl.bind(mainMod .. " + E", hl.dsp.layout("togglesplit"))
--- Hyprland groups provide a tabbed equivalent; S cycles within a group.
-hl.bind(mainMod .. " + W", hl.dsp.group.toggle())
-hl.bind(mainMod .. " + S", hl.dsp.group.next())
+-- Hyprland has no i3-style stacking layout; groups are its closest equivalent.
+-- Super+S toggles the focused window into/out of a tabbed group, and Super+W
+-- cycles through that group's windows.
+hl.bind(mainMod .. " + S", hl.dsp.group.toggle())
+hl.bind(mainMod .. " + W", hl.dsp.group.next())
 hl.bind(mainMod .. " + U", hl.dsp.window.set_prop({ prop = "border_size", value = 0 }))
 hl.bind(mainMod .. " + Y", hl.dsp.window.set_prop({ prop = "border_size", value = 3 }))
 hl.bind(mainMod .. " + MINUS", hl.dsp.workspace.toggle_special("scratchpad"))
