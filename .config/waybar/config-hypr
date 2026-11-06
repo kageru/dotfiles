@@ -5,7 +5,8 @@
     "modules-right": ["mpd", "idle_inhibitor", "tray", "cpu", "memory", "temperature", "clock"],
     "hyprland/workspaces": {
         "all-outputs": false,
-        "format": "{id}"
+        "format": "{id}",
+        "enable-bar-scroll": true
     },
     "hyprland/submap": {
         "format": "<span style=\"italic\">{}</span>"
