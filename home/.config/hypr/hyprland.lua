@@ -168,8 +168,8 @@ for key, direction in pairs(directions) do
     hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ direction = direction, group_aware = true }))
 end
 
-for i = 1, 10 do
-    local key = tostring(i % 10)
+for i = 1, 9 do
+    local key = tostring(i)
     hl.bind(mainMod .. " + " .. key, hl.dsp.focus({ workspace = i }))
     hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i, follow = true }))
 end
@@ -233,7 +233,7 @@ local resizeDirections = {
 hl.bind(mainMod .. " + R", hl.dsp.submap("resize"))
 hl.define_submap("resize", function()
     for key, delta in pairs(resizeDirections) do
-        hl.bind(key, hl.dsp.window.resize({ x = delta[1], y = delta[2], relative = true }))
+        hl.bind(key, hl.dsp.window.resize({ x = delta[1], y = delta[2], relative = true }), { repeating = true })
     end
     hl.bind("return", hl.dsp.submap("reset"))
     hl.bind("escape", hl.dsp.submap("reset"))
