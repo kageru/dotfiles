@@ -21,6 +21,9 @@ hl.env("HYPRCURSOR_SIZE", "24")
 -------------------
 
 hl.config({
+    render = {
+        cm_auto_hdr = 0,
+    },
     general = {
         gaps_in = 8,
         -- Keep the screen edge available for easy titlebar and tab-bar targeting.
